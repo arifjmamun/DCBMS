@@ -58,14 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.Master" />
-    <Content Include="Template\.jshintrc" />
     <Content Include="Template\bootstrap\css\bootstrap.css.map" />
     <Content Include="Template\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Template\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Template\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Template\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Template\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Template\bower.json" />
     <Content Include="Template\build\bootstrap-less\mixins.less" />
     <Content Include="Template\build\bootstrap-less\mixins\alerts.less" />
     <Content Include="Template\build\bootstrap-less\mixins\background-variant.less" />
@@ -150,9 +148,6 @@
     <Content Include="Template\build\less\timeline.less" />
     <Content Include="Template\build\less\users-list.less" />
     <Content Include="Template\build\less\variables.less" />
-    <Content Include="Template\changelog.md" />
-    <Content Include="Template\composer.json" />
-    <Content Include="Template\LICENSE" />
     <Content Include="Template\package.json" />
     <Content Include="Template\plugins\ckeditor\CHANGES.md" />
     <Content Include="Template\plugins\ckeditor\LICENSE.md" />
@@ -184,7 +179,6 @@
     <Content Include="Template\plugins\datatables\extensions\TableTools\Readme.md" />
     <Content Include="Template\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Template\plugins\input-mask\phone-codes\phone-codes.json" />
-    <Content Include="Template\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -193,7 +187,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Template\.gitignore" />
     <Content Include="Template\bootstrap\css\bootstrap.css" />
     <Content Include="Template\bootstrap\css\bootstrap.min.css" />
     <Content Include="Template\bootstrap\fonts\glyphicons-halflings-regular.svg" />
