@@ -60,10 +60,13 @@
     <Content Include="Main.Master" />
     <Content Include="Template\bootstrap\css\bootstrap.css.map" />
     <Content Include="Template\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Template\bootstrap\css\font-awesome.min.css" />
+    <Content Include="Template\bootstrap\css\ionicons.min.css" />
     <Content Include="Template\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Template\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Template\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Template\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Template\plugins\moment.min.js" />
     <Content Include="Template\build\bootstrap-less\mixins.less" />
     <Content Include="Template\build\bootstrap-less\mixins\alerts.less" />
     <Content Include="Template\build\bootstrap-less\mixins\background-variant.less" />
@@ -148,7 +151,6 @@
     <Content Include="Template\build\less\timeline.less" />
     <Content Include="Template\build\less\users-list.less" />
     <Content Include="Template\build\less\variables.less" />
-    <Content Include="Template\package.json" />
     <Content Include="Template\plugins\ckeditor\CHANGES.md" />
     <Content Include="Template\plugins\ckeditor\LICENSE.md" />
     <Content Include="Template\plugins\ckeditor\plugins\scayt\CHANGELOG.md" />
@@ -179,6 +181,13 @@
     <Content Include="Template\plugins\datatables\extensions\TableTools\Readme.md" />
     <Content Include="Template\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Template\plugins\input-mask\phone-codes\phone-codes.json" />
+    <Content Include="Template\bootstrap\fonts\fontawesome-webfont.eot" />
+    <Content Include="Template\bootstrap\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Template\bootstrap\fonts\fontawesome-webfont.woff" />
+    <Content Include="Template\bootstrap\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Template\bootstrap\fonts\ionicons.eot" />
+    <Content Include="Template\bootstrap\fonts\ionicons.ttf" />
+    <Content Include="Template\bootstrap\fonts\ionicons.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -254,60 +263,6 @@
     <Content Include="Template\dist\js\demo.js" />
     <Content Include="Template\dist\js\pages\dashboard.js" />
     <Content Include="Template\dist\js\pages\dashboard2.js" />
-    <Content Include="Template\documentation\build\include\adminlte-options.html" />
-    <Content Include="Template\documentation\build\include\advice.html" />
-    <Content Include="Template\documentation\build\include\browsers.html" />
-    <Content Include="Template\documentation\build\include\components.html" />
-    <Content Include="Template\documentation\build\include\dependencies.html" />
-    <Content Include="Template\documentation\build\include\download.html" />
-    <Content Include="Template\documentation\build\include\faq.html" />
-    <Content Include="Template\documentation\build\include\implementations.html" />
-    <Content Include="Template\documentation\build\include\introduction.html" />
-    <Content Include="Template\documentation\build\include\layout.html" />
-    <Content Include="Template\documentation\build\include\license.html" />
-    <Content Include="Template\documentation\build\include\plugins.html" />
-    <Content Include="Template\documentation\build\include\upgrade.html" />
-    <Content Include="Template\documentation\build\index.html" />
-    <Content Include="Template\documentation\docs.js" />
-    <Content Include="Template\documentation\index.html" />
-    <Content Include="Template\documentation\style.css" />
-    <Content Include="Template\Gruntfile.js" />
-    <Content Include="Template\index.html" />
-    <Content Include="Template\index2.html" />
-    <Content Include="Template\pages\calendar.html" />
-    <Content Include="Template\pages\charts\chartjs.html" />
-    <Content Include="Template\pages\charts\flot.html" />
-    <Content Include="Template\pages\charts\inline.html" />
-    <Content Include="Template\pages\charts\morris.html" />
-    <Content Include="Template\pages\examples\404.html" />
-    <Content Include="Template\pages\examples\500.html" />
-    <Content Include="Template\pages\examples\blank.html" />
-    <Content Include="Template\pages\examples\invoice-print.html" />
-    <Content Include="Template\pages\examples\invoice.html" />
-    <Content Include="Template\pages\examples\lockscreen.html" />
-    <Content Include="Template\pages\examples\login.html" />
-    <Content Include="Template\pages\examples\pace.html" />
-    <Content Include="Template\pages\examples\profile.html" />
-    <Content Include="Template\pages\examples\register.html" />
-    <Content Include="Template\pages\forms\advanced.html" />
-    <Content Include="Template\pages\forms\editors.html" />
-    <Content Include="Template\pages\forms\general.html" />
-    <Content Include="Template\pages\layout\boxed.html" />
-    <Content Include="Template\pages\layout\collapsed-sidebar.html" />
-    <Content Include="Template\pages\layout\fixed.html" />
-    <Content Include="Template\pages\layout\top-nav.html" />
-    <Content Include="Template\pages\mailbox\compose.html" />
-    <Content Include="Template\pages\mailbox\mailbox.html" />
-    <Content Include="Template\pages\mailbox\read-mail.html" />
-    <Content Include="Template\pages\tables\data.html" />
-    <Content Include="Template\pages\tables\simple.html" />
-    <Content Include="Template\pages\UI\buttons.html" />
-    <Content Include="Template\pages\UI\general.html" />
-    <Content Include="Template\pages\UI\icons.html" />
-    <Content Include="Template\pages\UI\modals.html" />
-    <Content Include="Template\pages\UI\sliders.html" />
-    <Content Include="Template\pages\UI\timeline.html" />
-    <Content Include="Template\pages\widgets.html" />
     <Content Include="Template\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="Template\plugins\bootstrap-slider\slider.css" />
     <Content Include="Template\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />
@@ -1107,7 +1062,7 @@
     <Content Include="Template\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Template\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Template\plugins\timepicker\bootstrap-timepicker.min.js" />
-    <Content Include="Template\starter.html" />
+    <Content Include="UI\TestType.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1119,10 +1074,15 @@
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\TestType.aspx.cs">
+      <DependentUpon>TestType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\TestType.aspx.designer.cs">
+      <DependentUpon>TestType.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
