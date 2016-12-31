@@ -122,54 +122,43 @@
                 </div>
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
+                    <!-- Setup -->
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-dashboard"></i><span>Dashboard</span>
+                            <i class="fa fa-gear"></i><span>Setup</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i>Dashboard v1</a></li>
-                            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i>Dashboard v2</a></li>
+                            <li><a href="../../index.html"><i class="fa fa-cog"></i>Test Type Setup</a></li>
+                            <li><a href="../../index2.html"><i class="fa fa-cog"></i>Test Setup</a></li>
                         </ul>
                     </li>
+                    <!-- Test Request Entry -->
                     <li>
                         <a href="../widgets.html">
-                            <i class="fa fa-th"></i><span>Widgets</span>
-                            <span class="pull-right-container">
-                                <small class="label pull-right bg-green">new</small>
-                            </span>
+                            <i class="fa fa-edit"></i><span>Test Request Entry</span>
                         </a>
                     </li>
+                    <!-- Test Request Entry -->
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-dollar"></i><span>Payment</span>
+                        </a>
+                    </li>
+                    <!-- Reports -->
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-laptop"></i>
-                            <span>UI Elements</span>
+                            <i class="fa  fa-file-text"></i><span>Report</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i>General</a></li>
-                            <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i>Icons</a></li>
-                            <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i>Buttons</a></li>
-                            <li><a href="../UI/sliders.html"><i class="fa fa-circle-o"></i>Sliders</a></li>
-                            <li><a href="../UI/timeline.html"><i class="fa fa-circle-o"></i>Timeline</a></li>
-                            <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i>Modals</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview active">
-                        <a href="#">
-                            <i class="fa fa-edit"></i><span>Forms</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li class="active"><a href="general.html"><i class="fa fa-circle-o"></i>General Elements</a></li>
-                            <li><a href="advanced.html"><i class="fa fa-circle-o"></i>Advanced Elements</a></li>
-                            <li><a href="editors.html"><i class="fa fa-circle-o"></i>Editors</a></li>
+                            <li><a href="#"><i class="fa fa-file-pdf-o"></i>Test Wise Report</a></li>
+                            <li><a href="#"><i class="fa fa-file-pdf-o"></i>Type Wise Report</a></li>
+                            <li><a href="#"><i class="fa fa-file-pdf-o"></i>Unpaid Bill Report</a></li>
                         </ul>
                     </li>
                 </ul>
