@@ -1063,9 +1063,9 @@
     <Content Include="Template\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Template\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="UI\Payment.aspx" />
-    <Content Include="UI\Test.aspx" />
+    <Content Include="UI\TestSetup.aspx" />
     <Content Include="UI\TestRequestEntry.aspx" />
-    <Content Include="UI\TestType.aspx" />
+    <Content Include="UI\TestTypeSetup.aspx" />
     <Content Include="UI\TestWiseReport.aspx" />
     <Content Include="UI\TypeWiseReport.aspx" />
     <Content Include="UI\UnpaidBillReport.aspx" />
@@ -1087,12 +1087,12 @@
     <Compile Include="UI\Payment.aspx.designer.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI\Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
+    <Compile Include="UI\TestSetup.aspx.cs">
+      <DependentUpon>TestSetup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI\Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
+    <Compile Include="UI\TestSetup.aspx.designer.cs">
+      <DependentUpon>TestSetup.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\TestRequestEntry.aspx.cs">
       <DependentUpon>TestRequestEntry.aspx</DependentUpon>
@@ -1101,12 +1101,12 @@
     <Compile Include="UI\TestRequestEntry.aspx.designer.cs">
       <DependentUpon>TestRequestEntry.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI\TestType.aspx.cs">
-      <DependentUpon>TestType.aspx</DependentUpon>
+    <Compile Include="UI\TestTypeSetup.aspx.cs">
+      <DependentUpon>TestTypeSetup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI\TestType.aspx.designer.cs">
-      <DependentUpon>TestType.aspx</DependentUpon>
+    <Compile Include="UI\TestTypeSetup.aspx.designer.cs">
+      <DependentUpon>TestTypeSetup.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\TestWiseReport.aspx.cs">
       <DependentUpon>TestWiseReport.aspx</DependentUpon>

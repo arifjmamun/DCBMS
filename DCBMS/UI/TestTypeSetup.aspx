@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestType.aspx.cs" Inherits="DCBMS.UI.TestType" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestTypeSetup.aspx.cs" Inherits="DCBMS.UI.TestType" %>
 
 <asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -25,7 +25,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-5 col-sm-3">
-                                    <asp:Button CssClass="btn btn-default pull-right" ID="saveTypeButton" runat="server" Text="Save" />
+                                    <asp:Button CssClass="btn btn-info pull-right" ID="saveTestTypeBtn" runat="server" Text="Save" />
                                 </div>
                             </div>
                         </div>

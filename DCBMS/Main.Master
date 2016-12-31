@@ -131,19 +131,19 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="../../index.html"><i class="fa fa-cog"></i>Test Type Setup</a></li>
-                            <li><a href="../../index2.html"><i class="fa fa-cog"></i>Test Setup</a></li>
+                            <li><a href="TestTypeSetup.aspx"><i class="fa fa-cog"></i>Test Type Setup</a></li>
+                            <li><a href="TestSetup.aspx"><i class="fa fa-cog"></i>Test Setup</a></li>
                         </ul>
                     </li>
                     <!-- Test Request Entry -->
                     <li>
-                        <a href="../widgets.html">
+                        <a href="TestRequestEntry.aspx">
                             <i class="fa fa-edit"></i><span>Test Request Entry</span>
                         </a>
                     </li>
-                    <!-- Test Request Entry -->
+                    <!-- Payment -->
                     <li>
-                        <a href="#">
+                        <a href="Payment.aspx">
                             <i class="fa fa-dollar"></i><span>Payment</span>
                         </a>
                     </li>
@@ -156,9 +156,9 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-file-pdf-o"></i>Test Wise Report</a></li>
-                            <li><a href="#"><i class="fa fa-file-pdf-o"></i>Type Wise Report</a></li>
-                            <li><a href="#"><i class="fa fa-file-pdf-o"></i>Unpaid Bill Report</a></li>
+                            <li><a href="TestWiseReport.aspx"><i class="fa fa-file-pdf-o"></i>Test Wise Report</a></li>
+                            <li><a href="TypeWiseReport.aspx"><i class="fa fa-file-pdf-o"></i>Type Wise Report</a></li>
+                            <li><a href="UnpaidBillReport.aspx"><i class="fa fa-file-pdf-o"></i>Unpaid Bill Report</a></li>
                         </ul>
                     </li>
                 </ul>

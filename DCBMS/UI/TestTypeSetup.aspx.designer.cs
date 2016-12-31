@@ -22,13 +22,13 @@ namespace DCBMS.UI {
         protected global::System.Web.UI.WebControls.TextBox typeNameTextBox;
         
         /// <summary>
-        /// saveTypeButton control.
+        /// saveTestTypeBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveTypeButton;
+        protected global::System.Web.UI.WebControls.Button saveTestTypeBtn;
         
         /// <summary>
         /// testTypeGridView control.
