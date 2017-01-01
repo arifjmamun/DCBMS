@@ -64,40 +64,18 @@
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="../Template/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">Alexander Pierce</span>
+                                <img src="../Template/dist/img/avatar5.png" class="user-image" alt="User Image"/>
+                                <span class="hidden-xs">User</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="../Template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
-                                    <p>
-                                        Alexander Pierce - Web Developer
-                                        <small>Member since Nov. 2012</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Body -->
-                                <li class="user-body">
-                                    <div class="row">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Followers</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
-                                        </div>
-                                    </div>
-                                    <!-- /.row -->
+                                    <img src="../Template/dist/img/avatar5.png" class="img-circle" alt="User Image" />
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="#" class="btn btn-default btn-flat">Logout</a>
                                     </div>
                                 </li>
                             </ul>
@@ -113,11 +91,10 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="../Template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                        <img src="../Template/dist/img/avatar5.png" class="img-circle" alt="User Image" />
                     </div>
                     <div class="pull-left info">
-                        <p>Alexander Pierce</p>
-                        <a href="#"><i class="fa fa-circle text-success"></i>Online</a>
+                        <p>User</p>
                     </div>
                 </div>
                 <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -160,6 +137,12 @@
                             <li><a href="TypeWiseReport.aspx"><i class="fa fa-file-pdf-o"></i>Type Wise Report</a></li>
                             <li><a href="UnpaidBillReport.aspx"><i class="fa fa-file-pdf-o"></i>Unpaid Bill Report</a></li>
                         </ul>
+                    </li>
+                    <!-- Payment -->
+                    <li>
+                        <a href="Payment.aspx">
+                            <i class="fa fa-sign-out"></i><span>Logout</span>
+                        </a>
                     </li>
                 </ul>
             </section>
