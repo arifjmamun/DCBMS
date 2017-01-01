@@ -46,8 +46,15 @@
                         </div>
                         <!-- /.box-body -->
                     </div>
-                    <div class="box-body no-padding">
-                        <asp:GridView ID="testTypeGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" UseAccessibleHeader="True" GridLines="None">
+                    <div class="box-body">
+                        <asp:GridView ID="testGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
+                            <Columns>
+                                <asp:BoundField DataField="slColumn" HeaderText="SL"/>
+                                <asp:BoundField DataField="testNameColumn" HeaderText="Test Name"/>
+                                <asp:BoundField DataField="feeColumn" HeaderText="Fee"/>
+                                <asp:BoundField DataField="typeColumn" HeaderText="Type" />
+                            </Columns>
+                            <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                         </asp:GridView>
                     </div>
                 </div>

@@ -1,9 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestTypeSetup.aspx.cs" Inherits="DCBMS.UI.TestType" %>
-
 <asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="bodyContent" ContentPlaceHolderID="mainContent" runat="server">
-    <!-- Content Header (Page header) -->
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -31,8 +29,13 @@
                         </div>
                         <!-- /.box-body -->
                     </div>
-                    <div class="box-body no-padding">
-                        <asp:GridView ID="testTypeGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" UseAccessibleHeader="True" GridLines="None">
+                    <div class="box-body">
+                        <asp:GridView ID="testTypeGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
+                            <Columns>
+                                <asp:BoundField DataField="slColumn" HeaderText="SL"/>
+                                <asp:BoundField DataField="typeNameColumn" HeaderText="Type Name"/>
+                            </Columns>
+                            <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                         </asp:GridView>
                     </div>
                 </div>
