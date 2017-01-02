@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="DCBMS.UI.Payment" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+<asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
-        <!-- Main content -->
+<asp:Content ID="bodyContent" ContentPlaceHolderID="mainContent" runat="server">
+    <!-- Main content -->
     <section class="content">
         <div class="row">
             <!-- right column -->
@@ -36,7 +37,7 @@
                                 </div>
                             </div>
                             <hr />
-                             <!--Bill Amount-->
+                            <!--Bill Amount-->
                             <div class="form-group">
                                 <label for="billAmountTextBox" class="col-sm-offset-3 col-sm-2 control-label">Amount</label>
                                 <div class="col-sm-3">

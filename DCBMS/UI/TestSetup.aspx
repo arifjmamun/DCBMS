@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestSetup.aspx.cs" Inherits="DCBMS.UI.Test" %>
+
 <asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="bodyContent" ContentPlaceHolderID="mainContent" runat="server">
@@ -43,19 +44,18 @@
                                     <asp:Button CssClass="btn btn-info pull-right" ID="saveTestBtn" runat="server" Text="Save" />
                                 </div>
                             </div>
+                            <hr />
+                            <asp:GridView ID="testGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
+                                <Columns>
+                                    <asp:BoundField DataField="slColumn" HeaderText="SL" />
+                                    <asp:BoundField DataField="testNameColumn" HeaderText="Test Name" />
+                                    <asp:BoundField DataField="feeColumn" HeaderText="Fee" />
+                                    <asp:BoundField DataField="typeColumn" HeaderText="Type" />
+                                </Columns>
+                                <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
+                            </asp:GridView>
                         </div>
                         <!-- /.box-body -->
-                    </div>
-                    <div class="box-body">
-                        <asp:GridView ID="testGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
-                            <Columns>
-                                <asp:BoundField DataField="slColumn" HeaderText="SL"/>
-                                <asp:BoundField DataField="testNameColumn" HeaderText="Test Name"/>
-                                <asp:BoundField DataField="feeColumn" HeaderText="Fee"/>
-                                <asp:BoundField DataField="typeColumn" HeaderText="Type" />
-                            </Columns>
-                            <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
-                        </asp:GridView>
                     </div>
                 </div>
                 <!-- /.box -->

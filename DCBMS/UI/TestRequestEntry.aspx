@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestRequestEntry.aspx.cs" Inherits="DCBMS.UI.TestRequest" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
+<asp:Content ID="bodyContent" ContentPlaceHolderID="mainContent" runat="server">
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -58,23 +58,17 @@
                                     <asp:Button CssClass="btn btn-info pull-right" ID="addRequestEntryBtn" runat="server" Text="Add" />
                                 </div>
                             </div>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                </div>
-                <!-- /.box -->
-                <div class="box box-info">
-                    <div class="box-body">
-                        <asp:GridView ID="testRequestEntryGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
-                            <Columns>
-                                <asp:BoundField DataField="slColumn" HeaderText="SL"/>
-                                <asp:BoundField DataField="testNameColumn" HeaderText="Test" />
-                                <asp:BoundField DataField="feeColumn" HeaderText="Fee"/>
-                            </Columns>
-                            <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
-                        </asp:GridView>
-                        <!-- Horizontal Form -->
-                        <div class="form-horizontal">
+
+                            <hr />
+                            <asp:GridView ID="testRequestEntryGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
+                                <Columns>
+                                    <asp:BoundField DataField="slColumn" HeaderText="SL" />
+                                    <asp:BoundField DataField="testNameColumn" HeaderText="Test" />
+                                    <asp:BoundField DataField="feeColumn" HeaderText="Fee" />
+                                </Columns>
+                                <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
+                            </asp:GridView>
+                            <hr />
                             <!--Total-->
                             <div class="form-group">
                                 <label for="totalTextBox" class="col-sm-offset-8 col-sm-2 control-label">Total</label>
@@ -88,7 +82,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /.box -->
+                        <!-- /.box-body -->
                     </div>
                 </div>
             </div>

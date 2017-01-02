@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TypeWiseReport.aspx.cs" Inherits="DCBMS.UI.TypeWiseReport" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+<asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
-     <!-- Main content -->
+<asp:Content ID="bodyContent" ContentPlaceHolderID="mainContent" runat="server">
+    <!-- Main content -->
     <section class="content">
         <div class="row">
             <!-- right column -->
