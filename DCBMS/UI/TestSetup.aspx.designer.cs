@@ -49,7 +49,7 @@ namespace DCBMS.UI {
         protected global::System.Web.UI.WebControls.Button saveTestBtn;
         
         /// <summary>
-        /// testGridView control.
+        /// testWiseReportGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

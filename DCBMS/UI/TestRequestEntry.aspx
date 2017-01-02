@@ -67,13 +67,9 @@
                     <div class="box-body">
                         <asp:GridView ID="testRequestEntryGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
                             <Columns>
-                                <asp:BoundField DataField="slColumn" HeaderText="SL">
-                                    <ItemStyle Width="30px" />
-                                </asp:BoundField>
+                                <asp:BoundField DataField="slColumn" HeaderText="SL"/>
                                 <asp:BoundField DataField="testNameColumn" HeaderText="Test" />
-                                <asp:BoundField DataField="feeColumn" HeaderText="Fee">
-                                    <ItemStyle Width="100px" />
-                                </asp:BoundField>
+                                <asp:BoundField DataField="feeColumn" HeaderText="Fee"/>
                             </Columns>
                             <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                         </asp:GridView>
