@@ -16,6 +16,15 @@
                     <!-- /.box-header -->
                     <div class="form-horizontal">
                         <div class="box-body">
+                            
+                            <!--Alert goes here-->
+                            <asp:Panel CssClass="alert alert-warning alert-dismissible" runat="server" ID="warningPanel" ClientIDMode="Static" Visible="False">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h4 id="errorName"  runat="server"><i class="icon fa fa-warning"></i></h4>
+                                <span runat="server" id="errorText"></span>
+                            </asp:Panel>
+                            <!--Alert ends-->
+
                             <div class="form-group">
                                 <label for="typeNameTextBox" class="col-sm-offset-3 col-sm-2 control-label">Type Name</label>
                                 <div class="col-sm-3">
@@ -24,19 +33,18 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-5 col-sm-3">
-                                    <asp:Button CssClass="btn btn-info pull-right" ID="saveTestTypeBtn" runat="server" Text="Save" />
+                                    <asp:Button CssClass="btn btn-info pull-right" ID="saveTestTypeBtn" runat="server" Text="Save" OnClick="saveTestTypeBtn_Click" />
                                 </div>
                             </div>
 
                             <hr />
                             <asp:GridView ID="testTypeGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
                                 <Columns>
-                                    <asp:BoundField DataField="slColumn" HeaderText="SL" />
-                                    <asp:BoundField DataField="typeNameColumn" HeaderText="Type Name" />
+                                    <asp:BoundField DataField="test_type_id" HeaderText="SL" />
+                                    <asp:BoundField DataField="test_type_name" HeaderText="Type Name" />
                                 </Columns>
                                 <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                             </asp:GridView>
-
                         </div>
                         <!-- /.box-body -->
                     </div>

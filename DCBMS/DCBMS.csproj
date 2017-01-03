@@ -1072,6 +1072,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DLL\DAO\TestTypeDao.cs" />
+    <Compile Include="DLL\Gateway\DBconnection.cs" />
+    <Compile Include="DLL\Gateway\TestTypeGateway.cs" />
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1079,6 +1082,7 @@
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
+    <Compile Include="Middleware\TestTypeHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
