@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Data;
 using System.Web.UI;
 using DCBMS.DLL.DAO;
 using DCBMS.Middleware;
@@ -12,16 +14,41 @@ namespace DCBMS.UI
         //Show Gridview as a table
         private void LoadGridView()
         {
-            testTypeGridView.DataSource = testTypeHelper.GetAllTestType();
+            //testTypeGridView.DataSource = testTypeHelper.GetAllTestTypeAsTable();
+            //testTypeGridView.DataBind();
+            DataTable table = new DataTable();
+            table.Columns.AddRange(new DataColumn[]
+            {
+                new DataColumn("SL", typeof(string)), 
+                new DataColumn("Type Name", typeof(string))
+            });
+            List<string> listOfTestTypes = testTypeHelper.GetAllTestType();
+            for (int i = 0; i < listOfTestTypes.Count; i++)
+            {
+                DataRow newRow = table.NewRow();
+                for (int j = 0; j < 2; j++)
+                {
+                    if (j == 0)
+                    {
+                        newRow["SL"] = (i + 1).ToString();
+                    }
+                    else
+                    {
+                        newRow["Type Name"] = listOfTestTypes[i];
+                    }
+                }
+                table.Rows.Add(newRow);
+            }
+            testTypeGridView.DataSource = table;
             testTypeGridView.DataBind();
         }
 
         //Show warning if the field is empty or has invalid data against Regular expression
         private void DisplayWarning()
         {
-            if (ViewState["IsEmpty"] != null)
+            if (ViewState["HasError"] != null)
             {
-                ArrayList errorInfo = (ArrayList)ViewState["IsEmpty"];
+                ArrayList errorInfo = (ArrayList)ViewState["HasError"];
                 if ((bool)errorInfo[0])
                 {
                     warningPanel.Visible = true;
@@ -49,7 +76,7 @@ namespace DCBMS.UI
         {
             if (typeNameTextBox.Text == String.Empty)
             {
-                ViewState["IsEmpty"] = new ArrayList
+                ViewState["HasError"] = new ArrayList
                 {
                     true,
                     "Test Type is empty!",
@@ -60,8 +87,20 @@ namespace DCBMS.UI
             {
                 string testType = typeNameTextBox.Text;
                 TestTypeDao newTestType = new TestTypeDao(testType);
-                testTypeHelper.AddNewTestTye(newTestType);
-                LoadGridView();
+                if (!testTypeHelper.CheckTestTypeIsExist(newTestType))
+                {
+                    testTypeHelper.AddNewTestTye(newTestType);
+                    LoadGridView();
+                }
+                else
+                {
+                    ViewState["HasError"] = new ArrayList
+                    {
+                        true,
+                        "Test Type is exist!",
+                        "You cannot add duplicate test type! It already exist, check again."
+                    };
+                }
             }
             DisplayWarning();
         }

@@ -38,11 +38,7 @@
                             </div>
 
                             <hr />
-                            <asp:GridView ID="testTypeGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
-                                <Columns>
-                                    <asp:BoundField DataField="test_type_id" HeaderText="SL" />
-                                    <asp:BoundField DataField="test_type_name" HeaderText="Type Name" />
-                                </Columns>
+                            <asp:GridView ID="testTypeGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="True" ShowHeaderWhenEmpty="True">
                                 <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                             </asp:GridView>
                         </div>

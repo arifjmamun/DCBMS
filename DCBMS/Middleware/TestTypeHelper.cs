@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using DCBMS.DLL.DAO;
 using DCBMS.DLL.Gateway;
 
@@ -7,14 +8,25 @@ namespace DCBMS.Middleware
     public class TestTypeHelper
     {
         TestTypeGateway newGateway = new TestTypeGateway();
+        CommonGateway commonGateway = new CommonGateway();
         public void AddNewTestTye(TestTypeDao newTestType)
         {
-            newGateway.AddNewTestTye(newTestType);
+            newGateway.AddNewTestType(newTestType);
         }
 
-        public DataTable GetAllTestType()
+        public DataTable GetAllTestTypeAsTable()
         {
-            return newGateway.GetAllTestType();
+            return newGateway.GetAllTestTypeAsTable();
+        }
+
+        public List<string> GetAllTestType()
+        {
+            return commonGateway.GetAllTestType();
+        }
+
+        public bool CheckTestTypeIsExist(TestTypeDao newTestType)
+        {
+            return newGateway.CheckTestTypeIsExist(newTestType);
         }
     }
 }

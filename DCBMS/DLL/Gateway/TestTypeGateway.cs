@@ -1,12 +1,13 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using DCBMS.DLL.DAO;
 
 namespace DCBMS.DLL.Gateway
 {
-    public class TestTypeGateway : DBconnection
+    public class TestTypeGateway : CommonGateway
     {
         //Add new TestType to the database
-        public void AddNewTestTye(TestTypeDao newTestType)
+        public void AddNewTestType(TestTypeDao newTestType)
         {
             try
             {
@@ -24,7 +25,7 @@ namespace DCBMS.DLL.Gateway
         }
 
         // Get all TestType info from Database
-        public DataTable GetAllTestType()
+        public DataTable GetAllTestTypeAsTable()
         {
             try
             {
@@ -43,10 +44,28 @@ namespace DCBMS.DLL.Gateway
         }
 
         // Check the given test type exist or not
-        public bool CheckTestTypeIsExist()
+        public bool CheckTestTypeIsExist(TestTypeDao newTestType)
         {
-            // have to do
-            return true;
+            try
+            {
+                string sqlQuery = @"SELECT COUNT(test_type_name) FROM test_type_setup WHERE test_type_name='"+newTestType.TypeName+"'";
+                Conenection.Open();
+                Command.CommandText = sqlQuery;
+                int countRow = (int)Command.ExecuteScalar();
+                if (countRow > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Conenection.Close();
+            }
         }
     }
 }

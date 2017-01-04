@@ -1,23 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Web.UI;
+using DCBMS.Middleware;
 
 namespace DCBMS.UI
 {
     public partial class Test : Page
     {
+        TestHelper testHelper = new TestHelper();
         private void InitiateGridView()
         {
-            if (!this.IsPostBack)
+            DataTable table = new DataTable();
+            testGridView.DataSource = table;
+            testGridView.DataBind();
+        }
+
+        private void LoadTestTypes()
+        {
+            List<string> testTypes = testHelper.GetAllTestType();
+            foreach (string testType in testTypes)
             {
-                DataTable table = new DataTable();
-                testGridView.DataSource = table;
-                testGridView.DataBind();
+                testTypeDropDown.Items.Add(testType);
             }
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            InitiateGridView();
+            if (!IsPostBack)
+            {
+                InitiateGridView();
+                LoadTestTypes();
+            }
         }
     }
 }

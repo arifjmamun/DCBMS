@@ -29,6 +29,7 @@
                                 <div class="col-sm-3">
                                     <asp:TextBox ID="feeTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                                 </div>
+                                <div class="col-sm-1"><span>BDT</span></div>
                             </div>
                             <!--Test Type-->
                             <div class="form-group">
