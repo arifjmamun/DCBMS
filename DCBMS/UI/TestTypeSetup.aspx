@@ -20,7 +20,7 @@
                             <!--Alert goes here-->
                             <asp:Panel CssClass="alert alert-warning alert-dismissible" runat="server" ID="warningPanel" ClientIDMode="Static" Visible="False">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                <h4 id="errorName"  runat="server"><i class="icon fa fa-warning"></i></h4>
+                                <h4 id="errorName"  runat="server"></h4>
                                 <span runat="server" id="errorText"></span>
                             </asp:Panel>
                             <!--Alert ends-->

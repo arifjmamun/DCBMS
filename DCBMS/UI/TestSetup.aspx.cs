@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace DCBMS.UI
 {
-    public partial class Test : System.Web.UI.Page
+    public partial class Test : Page
     {
         private void InitiateGridView()
         {

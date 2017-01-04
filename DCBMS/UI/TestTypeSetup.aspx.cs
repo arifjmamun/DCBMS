@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections;
-using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using DCBMS.DLL.DAO;
 using DCBMS.Middleware;
 
 namespace DCBMS.UI
 {
-    public partial class TestType : System.Web.UI.Page
+    public partial class TestType : Page
     {
         TestTypeHelper testTypeHelper = new TestTypeHelper();
         //Show Gridview as a table
@@ -24,16 +19,20 @@ namespace DCBMS.UI
         //Show warning if the field is empty or has invalid data against Regular expression
         private void DisplayWarning()
         {
-            if (Session["IsEmpty"] != null)
+            if (ViewState["IsEmpty"] != null)
             {
-                ArrayList errorInfo = (ArrayList)Session["IsEmpty"];
+                ArrayList errorInfo = (ArrayList)ViewState["IsEmpty"];
                 if ((bool)errorInfo[0])
                 {
                     warningPanel.Visible = true;
-                    errorName.InnerHtml += (string)errorInfo[1];
+                    errorName.InnerHtml = "<i class='icon fa fa-warning'></i>"+(string)errorInfo[1];
                     errorText.InnerText = (string)errorInfo[2];
-                    Session.Remove("IsEmpty");
+                    ViewState.Clear();
                 }
+            }
+            else
+            {
+                warningPanel.Visible = false;
             }
             //Regular expression implementation uncompleted
         }
@@ -43,7 +42,6 @@ namespace DCBMS.UI
             if (!this.IsPostBack)
             {
                 LoadGridView();
-                DisplayWarning();
             }
         }
 
@@ -51,13 +49,12 @@ namespace DCBMS.UI
         {
             if (typeNameTextBox.Text == String.Empty)
             {
-                Session["IsEmpty"] = new ArrayList
+                ViewState["IsEmpty"] = new ArrayList
                 {
                     true,
                     "Test Type is empty!",
                     "Test type cannot be empty! Enter valid test type!"
                 };
-                Response.Redirect("TestTypeSetup.aspx");
             }
             else
             {
@@ -66,6 +63,7 @@ namespace DCBMS.UI
                 testTypeHelper.AddNewTestTye(newTestType);
                 LoadGridView();
             }
+            DisplayWarning();
         }
     }
 }

@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Web.UI.WebControls;
+
 namespace DCBMS.UI {
     
     
@@ -19,7 +21,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox billNoTextBox;
+        protected TextBox billNoTextBox;
         
         /// <summary>
         /// mobileNoTextBox control.
@@ -28,7 +30,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox mobileNoTextBox;
+        protected TextBox mobileNoTextBox;
         
         /// <summary>
         /// searchBillInfoBtn control.
@@ -37,7 +39,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button searchBillInfoBtn;
+        protected Button searchBillInfoBtn;
         
         /// <summary>
         /// billAmountTextBox control.
@@ -46,7 +48,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox billAmountTextBox;
+        protected TextBox billAmountTextBox;
         
         /// <summary>
         /// dueDateTextBox control.
@@ -55,7 +57,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dueDateTextBox;
+        protected TextBox dueDateTextBox;
         
         /// <summary>
         /// payBillButton control.
@@ -64,6 +66,6 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button payBillButton;
+        protected Button payBillButton;
     }
 }
