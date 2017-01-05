@@ -14,6 +14,8 @@
                     $("#feeTextBox").val(response.d);
                 }
             });
+        } else {
+            $("#feeTextBox").val("");
         }
     });
 

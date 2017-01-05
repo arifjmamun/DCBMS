@@ -50,7 +50,7 @@
                             <div class="form-group">
                                 <label for="feeTextBox" class="col-sm-offset-3 col-sm-2 control-label">Fee</label>
                                 <div class="col-sm-2">
-                                    <asp:TextBox ID="feeTextBox" runat="server" CssClass="form-control pull-left" ClientIDMode="Static"></asp:TextBox>
+                                    <asp:TextBox ID="feeTextBox" runat="server" CssClass="form-control pull-left" ClientIDMode="Static" Enabled="False"></asp:TextBox>
                                 </div>
                                 <div class="col-sm-1">
                                     <asp:Button CssClass="btn btn-info pull-right" ID="addRequestEntryBtn" runat="server" Text="Add" />
