@@ -6,14 +6,14 @@ namespace DCBMS.DLL.Gateway
     abstract public class DBconnection
     {
         protected SqlCommand Command;
-        protected SqlConnection Conenection;
+        protected SqlConnection Connection;
         protected SqlDataAdapter Adapter;
         protected SqlDataReader Reader;
         protected DBconnection()
         {
-            Conenection = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnection"].ConnectionString);
+            Connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnection"].ConnectionString);
             Command = new SqlCommand();
-            Command.Connection = Conenection;
+            Command.Connection = Connection;
         }
     }
 }

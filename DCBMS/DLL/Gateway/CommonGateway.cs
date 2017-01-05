@@ -13,14 +13,14 @@ namespace DCBMS.DLL.Gateway
             {
                 List<string> testTypes = new List<string>();
                 const string query = @"SELECT test_type_name FROM test_type_setup";
-                Conenection.Open();
+                Connection.Open();
                 Command.CommandText = query;
                 Reader = Command.ExecuteReader();
                 while (Reader.Read())
                 {
                     testTypes.Add(Reader.GetValue(0).ToString());
                 }
-                Conenection.Close();
+                Connection.Close();
                 return testTypes;
             }
             catch (Exception)
@@ -30,7 +30,7 @@ namespace DCBMS.DLL.Gateway
             }
             finally
             {
-                Conenection.Close();
+                Connection.Close();
             }
         }
     }

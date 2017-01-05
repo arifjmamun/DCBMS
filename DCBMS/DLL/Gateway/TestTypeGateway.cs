@@ -12,7 +12,7 @@ namespace DCBMS.DLL.Gateway
             try
             {
                 const string sqlQuery = @"INSERT INTO test_type_setup(test_type_name) VALUES(@TestTypeName)";
-                Conenection.Open();
+                Connection.Open();
                 Command.CommandText = sqlQuery;
                 Command.Parameters.Clear();
                 Command.Parameters.AddWithValue("@TestTypeName", newTestType.TypeName);
@@ -20,7 +20,7 @@ namespace DCBMS.DLL.Gateway
             }
             finally
             {
-                Conenection.Close();
+                Connection.Close();
             }
         }
 
@@ -30,7 +30,7 @@ namespace DCBMS.DLL.Gateway
             try
             {
                 const string sqlQuery = @"SELECT * FROM test_type_setup";
-                Conenection.Open();
+                Connection.Open();
                 Command.CommandText = sqlQuery;
                 Reader = Command.ExecuteReader();
                 DataTable newTable = new DataTable();
@@ -39,7 +39,7 @@ namespace DCBMS.DLL.Gateway
             }
             finally
             {
-                Conenection.Close();
+                Connection.Close();
             }
         }
 
@@ -49,7 +49,7 @@ namespace DCBMS.DLL.Gateway
             try
             {
                 string sqlQuery = @"SELECT COUNT(test_type_name) FROM test_type_setup WHERE test_type_name='"+newTestType.TypeName+"'";
-                Conenection.Open();
+                Connection.Open();
                 Command.CommandText = sqlQuery;
                 int countRow = (int)Command.ExecuteScalar();
                 if (countRow > 0)
@@ -64,7 +64,7 @@ namespace DCBMS.DLL.Gateway
             }
             finally
             {
-                Conenection.Close();
+                Connection.Close();
             }
         }
     }
