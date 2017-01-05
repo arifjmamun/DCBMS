@@ -29,7 +29,7 @@
 
                             <!--TestSetup Name-->
                             <div class="form-group">
-                                <label for="testNameTextBox" class="col-sm-offset-3 col-sm-2 control-label">TestSetup Name</label>
+                                <label for="testNameTextBox" class="col-sm-offset-3 col-sm-2 control-label">Test Name</label>
                                 <div class="col-sm-3">
                                     <asp:TextBox ID="testNameTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                                 </div>
@@ -44,7 +44,7 @@
                             </div>
                             <!--TestSetup Type-->
                             <div class="form-group">
-                                <label for="testTypeDropDown" class="col-sm-offset-3 col-sm-2 control-label">TestSetup Type</label>
+                                <label for="testTypeDropDown" class="col-sm-offset-3 col-sm-2 control-label">Test Type</label>
                                 <div class="col-sm-3">
                                     <asp:DropDownList ID="testTypeDropDown" runat="server" CssClass="form-control" ClientIDMode="Static">
                                         <asp:ListItem Text="Select One" Value=""></asp:ListItem>

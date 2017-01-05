@@ -46,7 +46,7 @@
                             </div>
                             <!--Due Date-->
                             <div class="form-group">
-                                <label for="dueDateTextBox" class="col-sm-offset-3 col-sm-2 control-label">Date</label>
+                                <label for="dueDateTextBox" class="col-sm-offset-3 col-sm-2 control-label">Due Date</label>
                                 <div class="col-sm-3">
                                     <asp:TextBox ID="dueDateTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                                 </div>

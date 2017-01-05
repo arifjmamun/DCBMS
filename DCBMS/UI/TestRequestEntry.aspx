@@ -11,7 +11,7 @@
                 <!-- Horizontal Form -->
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">TestSetup Setup</h3>
+                        <h3 class="box-title">Test Request Entry</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="form-horizontal">
@@ -39,7 +39,7 @@
                             </div>
                             <!--Select TestSetup-->
                             <div class="form-group">
-                                <label for="selectTestSetupDropDown" class="col-sm-offset-3 col-sm-2 control-label">Select TestSetup</label>
+                                <label for="selectTestSetupDropDown" class="col-sm-offset-3 col-sm-2 control-label">Select Test</label>
                                 <div class="col-sm-3">
                                     <asp:DropDownList ID="selectTestDropDown" runat="server" CssClass="form-control" ClientIDMode="Static">
                                         <asp:ListItem Text="Select One" Value=""></asp:ListItem>

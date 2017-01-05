@@ -94,6 +94,7 @@ namespace DCBMS.UI
                     "None of the field(s) cannot be empty and must select a Test Type."
                 };
             }
+            DisplayWarning();
         }
     }
 }
