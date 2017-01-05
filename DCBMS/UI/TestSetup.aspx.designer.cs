@@ -10,7 +10,7 @@
 namespace DCBMS.UI {
     
     
-    public partial class Test {
+    public partial class TestSetup {
         
         /// <summary>
         /// warningPanel control.

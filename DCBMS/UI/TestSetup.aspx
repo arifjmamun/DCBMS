@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestSetup.aspx.cs" Inherits="DCBMS.UI.Test" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestSetup.aspx.cs" Inherits="DCBMS.UI.TestSetup" %>
 
 <asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -11,12 +11,12 @@
                 <!-- Horizontal Form -->
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Test Setup</h3>
+                        <h3 class="box-title">TestSetup Setup</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="form-horizontal">
                         <div class="box-body">
-                            
+
                             <!--Alert goes here-->
                             <div class="col-sm-offset-3 col-sm-6">
                                 <asp:Panel CssClass="alert alert-warning alert-dismissible" runat="server" ID="warningPanel" ClientIDMode="Static" Visible="False">
@@ -27,9 +27,9 @@
                             </div>
                             <!--Alert ends-->
 
-                            <!--Test Name-->
+                            <!--TestSetup Name-->
                             <div class="form-group">
-                                <label for="testNameTextBox" class="col-sm-offset-3 col-sm-2 control-label">Test Name</label>
+                                <label for="testNameTextBox" class="col-sm-offset-3 col-sm-2 control-label">TestSetup Name</label>
                                 <div class="col-sm-3">
                                     <asp:TextBox ID="testNameTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                                 </div>
@@ -42,9 +42,9 @@
                                 </div>
                                 <div class="col-sm-1"><span>BDT</span></div>
                             </div>
-                            <!--Test Type-->
+                            <!--TestSetup Type-->
                             <div class="form-group">
-                                <label for="testTypeDropDown" class="col-sm-offset-3 col-sm-2 control-label">Test Type</label>
+                                <label for="testTypeDropDown" class="col-sm-offset-3 col-sm-2 control-label">TestSetup Type</label>
                                 <div class="col-sm-3">
                                     <asp:DropDownList ID="testTypeDropDown" runat="server" CssClass="form-control" ClientIDMode="Static">
                                         <asp:ListItem Text="Select One" Value=""></asp:ListItem>
@@ -53,14 +53,14 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-5 col-sm-3">
-                                    <asp:Button CssClass="btn btn-info pull-right" ID="saveTestBtn" runat="server" Text="Save" OnClick="saveTestBtn_Click" />
+                                    <asp:Button CssClass="btn btn-info pull-right" ID="saveTestBtn" runat="server" Text="Save" OnClick="saveTestSetupBtn_Click" />
                                 </div>
                             </div>
                             <hr />
                             <asp:GridView ID="testGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
                                 <Columns>
                                     <asp:BoundField DataField="test_id" HeaderText="SL" />
-                                    <asp:BoundField DataField="test_name" HeaderText="Test Name" />
+                                    <asp:BoundField DataField="test_name" HeaderText="TestSetup Name" />
                                     <asp:BoundField DataField="test_fee" HeaderText="Fee" />
                                     <asp:BoundField DataField="test_type_name" HeaderText="Type" />
                                 </Columns>

@@ -229,7 +229,7 @@ var wysihtml5 = {
         fail("hasOwnProperty not supported");
     }
 
-    // Test whether Array.prototype.slice can be relied on for NodeLists and use an alternative toArray() if not
+    // TestSetup whether Array.prototype.slice can be relied on for NodeLists and use an alternative toArray() if not
     (function() {
         var el = document.createElement("div");
         el.appendChild(document.createElement("span"));
@@ -485,7 +485,7 @@ var wysihtml5 = {
         }
     };
 
-    // Test whether we have window and document objects that we will need
+    // TestSetup whether we have window and document objects that we will need
     if (typeof window == UNDEFINED) {
         fail("No window found");
         return;
@@ -735,13 +735,13 @@ var wysihtml5 = {
                 doc = document;
             }
 
-            // Test if a DOM node has been passed and obtain a document object for it if so
+            // TestSetup if a DOM node has been passed and obtain a document object for it if so
             else if (util.isHostProperty(obj, "nodeType")) {
                 doc = (obj.nodeType == 1 && obj.tagName.toLowerCase() == "iframe") ?
                     getIframeDocument(obj) : getDocument(obj);
             }
 
-            // Test if the doc parameter appears to be a Window object
+            // TestSetup if the doc parameter appears to be a Window object
             else if (isWindow(obj)) {
                 doc = obj.document;
             }
@@ -802,7 +802,7 @@ var wysihtml5 = {
 
         /*----------------------------------------------------------------------------------------------------------------*/
 
-        // Test for IE's crash (IE 6/7) or exception (IE >= 8) when a reference to garbage-collected text node is queried
+        // TestSetup for IE's crash (IE 6/7) or exception (IE >= 8) when a reference to garbage-collected text node is queried
         var crashyTextNodes = false;
 
         function isBrokenNode(node) {
@@ -1374,7 +1374,7 @@ var wysihtml5 = {
 
         /*----------------------------------------------------------------------------------------------------------------*/
 
-        // Test the browser's innerHTML support to decide how to implement createContextualFragment
+        // TestSetup the browser's innerHTML support to decide how to implement createContextualFragment
         var styleEl = document.createElement("style");
         var htmlParsingConforms = false;
         try {
@@ -2277,7 +2277,7 @@ var wysihtml5 = {
 
                 /*--------------------------------------------------------------------------------------------------------*/
 
-                // Test for Firefox 2 bug that prevents moving the start of a Range to a point after its current end and
+                // TestSetup for Firefox 2 bug that prevents moving the start of a Range to a point after its current end and
                 // correct for it
 
                 range.setStart(testTextNode, 0);
@@ -2353,7 +2353,7 @@ var wysihtml5 = {
 
                 /*--------------------------------------------------------------------------------------------------------*/
 
-                // Test for and correct WebKit bug that has the behaviour of compareBoundaryPoints round the wrong way for
+                // TestSetup for and correct WebKit bug that has the behaviour of compareBoundaryPoints round the wrong way for
                 // constants START_TO_END and END_TO_START: https://bugs.webkit.org/show_bug.cgi?id=20738
 
                 range.selectNodeContents(testTextNode);
@@ -2385,7 +2385,7 @@ var wysihtml5 = {
 
                 /*--------------------------------------------------------------------------------------------------------*/
 
-                // Test for IE 9 deleteContents() and extractContents() bug and correct it. See issue 107.
+                // TestSetup for IE 9 deleteContents() and extractContents() bug and correct it. See issue 107.
 
                 var el = document.createElement("div");
                 el.innerHTML = "123";
@@ -2418,7 +2418,7 @@ var wysihtml5 = {
 
                 /*--------------------------------------------------------------------------------------------------------*/
 
-                // Test for existence of createContextualFragment and delegate to it if it exists
+                // TestSetup for existence of createContextualFragment and delegate to it if it exists
                 if (util.isHostMethod(range, "createContextualFragment")) {
                     rangeProto.createContextualFragment = function(fragmentStr) {
                         return this.nativeRange.createContextualFragment(fragmentStr);
@@ -2848,8 +2848,8 @@ var wysihtml5 = {
             return backward;
         }
 
-        // Test for the Range/TextRange and Selection features required
-        // Test for ability to retrieve selection
+        // TestSetup for the Range/TextRange and Selection features required
+        // TestSetup for ability to retrieve selection
         var implementsWinGetSelection = isHostMethod(window, "getSelection"),
             implementsDocSelection = util.isHostObject(document, "selection");
 
@@ -2887,11 +2887,11 @@ var wysihtml5 = {
 
         features.selectionHasAnchorAndFocus = selectionHasAnchorAndFocus;
 
-        // Test for existence of native selection extend() method
+        // TestSetup for existence of native selection extend() method
         var selectionHasExtend = isHostMethod(testSelection, "extend");
         features.selectionHasExtend = selectionHasExtend;
         
-        // Test if rangeCount exists
+        // TestSetup if rangeCount exists
         var selectionHasRangeCount = (typeof testSelection.rangeCount == NUMBER);
         features.selectionHasRangeCount = selectionHasRangeCount;
 
@@ -2935,7 +2935,7 @@ var wysihtml5 = {
                     testEl.contentEditable = "false";
                     var textNode = testEl.appendChild( document.createTextNode("\u00a0\u00a0\u00a0") );
 
-                    // Test whether the native selection will allow a collapsed selection within a non-editable element
+                    // TestSetup whether the native selection will allow a collapsed selection within a non-editable element
                     var r1 = document.createRange();
 
                     r1.setStart(textNode, 1);
@@ -2944,7 +2944,7 @@ var wysihtml5 = {
                     collapsedNonEditableSelectionsSupported = (sel.rangeCount == 1);
                     sel.removeAllRanges();
 
-                    // Test whether the native selection is capable of supporting multiple ranges.
+                    // TestSetup whether the native selection is capable of supporting multiple ranges.
                     if (!selectionHasMultipleRanges) {
                         // Doing the original feature test here in Chrome 36 (and presumably later versions) prints a
                         // console error of "Discontiguous selection is not supported." that cannot be suppressed. There's
@@ -9889,7 +9889,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
           currentMerge = null;
         }
       }
-      // Test whether the first node after the range needs merging
+      // TestSetup whether the first node after the range needs merging
       if(lastNode && lastNode.parentNode) {
         var nextTextNode = this.getAdjacentMergeableTextNode(lastNode.parentNode, true);
         if (nextTextNode) {

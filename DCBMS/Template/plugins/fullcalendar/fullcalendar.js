@@ -3546,7 +3546,7 @@ Grid.mixin({
 		if (view.opt('droppable')) { // only listen if this setting is on
 			el = $(ev.target);
 
-			// Test that the dragged element passes the dropAccept selector or filter function.
+			// TestSetup that the dragged element passes the dropAccept selector or filter function.
 			// FYI, the default is "*" (matches all)
 			accept = view.opt('dropAccept');
 			if ($.isFunction(accept) ? accept.call(el[0], el) : el.is(accept)) {

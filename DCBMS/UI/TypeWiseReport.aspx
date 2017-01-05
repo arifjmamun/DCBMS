@@ -37,8 +37,8 @@
                             <asp:GridView ID="typeWiseReportGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
                                 <Columns>
                                     <asp:BoundField DataField="slColumn" HeaderText="SL" />
-                                    <asp:BoundField DataField="testTypeNameColumn" HeaderText="Test Type Name" />
-                                    <asp:BoundField DataField="totalNoOfTestColumn" HeaderText="Total No. Of Test" />
+                                    <asp:BoundField DataField="testTypeNameColumn" HeaderText="TestSetup Type Name" />
+                                    <asp:BoundField DataField="totalNoOfTestSetupColumn" HeaderText="Total No. Of TestSetup" />
                                     <asp:BoundField DataField="totalAmountColumn" HeaderText="Total Amount" />
                                 </Columns>
                                 <EmptyDataTemplate>No Record Available</EmptyDataTemplate>

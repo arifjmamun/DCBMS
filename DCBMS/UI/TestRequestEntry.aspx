@@ -11,7 +11,7 @@
                 <!-- Horizontal Form -->
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Test Setup</h3>
+                        <h3 class="box-title">TestSetup Setup</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="form-horizontal">
@@ -37,9 +37,9 @@
                                     <asp:TextBox ID="mobileNoTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                                 </div>
                             </div>
-                            <!--Select Test-->
+                            <!--Select TestSetup-->
                             <div class="form-group">
-                                <label for="selectTestDropDown" class="col-sm-offset-3 col-sm-2 control-label">Select Test</label>
+                                <label for="selectTestSetupDropDown" class="col-sm-offset-3 col-sm-2 control-label">Select TestSetup</label>
                                 <div class="col-sm-3">
                                     <asp:DropDownList ID="selectTestDropDown" runat="server" CssClass="form-control" ClientIDMode="Static">
                                         <asp:ListItem Text="Select One" Value=""></asp:ListItem>
@@ -63,7 +63,7 @@
                             <asp:GridView ID="testRequestEntryGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
                                 <Columns>
                                     <asp:BoundField DataField="slColumn" HeaderText="SL" />
-                                    <asp:BoundField DataField="testNameColumn" HeaderText="Test" />
+                                    <asp:BoundField DataField="testNameColumn" HeaderText="TestSetup" />
                                     <asp:BoundField DataField="feeColumn" HeaderText="Fee" />
                                 </Columns>
                                 <EmptyDataTemplate>No Record Available</EmptyDataTemplate>

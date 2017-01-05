@@ -6,7 +6,7 @@ namespace DCBMS.DLL.Gateway
 {
     public class TestTypeGateway : CommonGateway
     {
-        //Add new TestType to the database
+        //Add new TestTypeSetup to the database
         public void AddNewTestType(TestTypeDao newTestType)
         {
             try
@@ -24,7 +24,7 @@ namespace DCBMS.DLL.Gateway
             }
         }
 
-        // Get all TestType info from Database
+        // Get all TestTypeSetup info from Database
         public DataTable GetAllTestTypeAsTable()
         {
             try

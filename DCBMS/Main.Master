@@ -108,14 +108,14 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="TestTypeSetup.aspx"><i class="fa fa-cog"></i>Test Type Setup</a></li>
-                            <li><a href="TestSetup.aspx"><i class="fa fa-cog"></i>Test Setup</a></li>
+                            <li><a href="TestTypeSetup.aspx"><i class="fa fa-cog"></i>TestSetup Type Setup</a></li>
+                            <li><a href="TestSetup.aspx"><i class="fa fa-cog"></i>TestSetup Setup</a></li>
                         </ul>
                     </li>
-                    <!-- Test Request Entry -->
+                    <!-- TestSetup Request Entry -->
                     <li>
                         <a href="TestRequestEntry.aspx">
-                            <i class="fa fa-edit"></i><span>Test Request Entry</span>
+                            <i class="fa fa-edit"></i><span>TestSetup Request Entry</span>
                         </a>
                     </li>
                     <!-- Payment -->
@@ -133,7 +133,7 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="TestWiseReport.aspx"><i class="fa fa-file-pdf-o"></i>Test Wise Report</a></li>
+                            <li><a href="TestWiseReport.aspx"><i class="fa fa-file-pdf-o"></i>TestSetup Wise Report</a></li>
                             <li><a href="TypeWiseReport.aspx"><i class="fa fa-file-pdf-o"></i>Type Wise Report</a></li>
                             <li><a href="UnpaidBillReport.aspx"><i class="fa fa-file-pdf-o"></i>Unpaid Bill Report</a></li>
                         </ul>

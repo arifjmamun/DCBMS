@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestTypeSetup.aspx.cs" Inherits="DCBMS.UI.TestType" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestTypeSetup.aspx.cs" Inherits="DCBMS.UI.TestTypeSetup" %>
 
 <asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -11,7 +11,7 @@
                 <!-- Horizontal Form -->
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Test Type Setup</h3>
+                        <h3 class="box-title">TestSetup Type Setup</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="form-horizontal">

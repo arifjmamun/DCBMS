@@ -8,7 +8,7 @@ using DCBMS.Middleware;
 
 namespace DCBMS.UI
 {
-    public partial class TestType : Page
+    public partial class TestTypeSetup : Page
     {
         TestTypeHelper testTypeHelper = new TestTypeHelper();
         //Show Gridview as a table
@@ -79,8 +79,8 @@ namespace DCBMS.UI
                 ViewState["HasError"] = new ArrayList
                 {
                     true,
-                    "Test Type is empty!",
-                    "Test type cannot be empty! Enter valid test type!"
+                    "TestSetup Type is empty!",
+                    "TestSetup type cannot be empty! Enter valid test type!"
                 };
             }
             else
@@ -97,7 +97,7 @@ namespace DCBMS.UI
                     ViewState["HasError"] = new ArrayList
                     {
                         true,
-                        "Test Type is exist!",
+                        "TestSetup Type is exist!",
                         "You cannot add duplicate test type! It already exist, check again."
                     };
                 }

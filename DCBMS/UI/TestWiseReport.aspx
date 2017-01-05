@@ -11,7 +11,7 @@
                 <!-- Horizontal Form -->
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Test Wise Report</h3>
+                        <h3 class="box-title">TestSetup Wise Report</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="form-horizontal">
@@ -37,8 +37,8 @@
                             <asp:GridView ID="testWiseReportGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
                                 <Columns>
                                     <asp:BoundField DataField="slColumn" HeaderText="SL" />
-                                    <asp:BoundField DataField="testNameColumn" HeaderText="Test Name" />
-                                    <asp:BoundField DataField="totalTestColumn" HeaderText="Total Test" />
+                                    <asp:BoundField DataField="testNameColumn" HeaderText="TestSetup Name" />
+                                    <asp:BoundField DataField="totalTestSetupColumn" HeaderText="Total TestSetup" />
                                     <asp:BoundField DataField="totalAmountColumn" HeaderText="Total Amount" />
                                 </Columns>
                                 <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
