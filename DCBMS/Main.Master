@@ -167,6 +167,7 @@
     <!-- ./wrapper -->
     <!-- jQuery 2.2.3 -->
     <script src="../Template/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="../Scripts/TestRequestEntry.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="../Template/plugins/jQueryUI/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

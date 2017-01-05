@@ -47,6 +47,7 @@ use DCBMS
 create table test_info(
 id int IDENTITY(1,1) NOT NULL,
 bill_id varchar(32) NOT NULL,
+test_date date NOT NULL,
 test_name varchar(64) NOT NULL,
 test_fee decimal NOT NULL,
 test_type_name varchar(64) NOT NULL,

@@ -39,7 +39,7 @@
                             </div>
                             <!--Select TestSetup-->
                             <div class="form-group">
-                                <label for="selectTestSetupDropDown" class="col-sm-offset-3 col-sm-2 control-label">Select Test</label>
+                                <label for="selectTestDropDown" class="col-sm-offset-3 col-sm-2 control-label">Select Test</label>
                                 <div class="col-sm-3">
                                     <asp:DropDownList ID="selectTestDropDown" runat="server" CssClass="form-control" ClientIDMode="Static">
                                         <asp:ListItem Text="Select One" Value=""></asp:ListItem>
@@ -49,12 +49,10 @@
                             <!--Fee-->
                             <div class="form-group">
                                 <label for="feeTextBox" class="col-sm-offset-3 col-sm-2 control-label">Fee</label>
-                                <div class="col-sm-3">
-                                    <asp:TextBox ID="feeTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                <div class="col-sm-2">
+                                    <asp:TextBox ID="feeTextBox" runat="server" CssClass="form-control pull-left" ClientIDMode="Static"></asp:TextBox>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-5 col-sm-3">
+                                <div class="col-sm-1">
                                     <asp:Button CssClass="btn btn-info pull-right" ID="addRequestEntryBtn" runat="server" Text="Add" />
                                 </div>
                             </div>
@@ -63,7 +61,7 @@
                             <asp:GridView ID="testRequestEntryGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
                                 <Columns>
                                     <asp:BoundField DataField="slColumn" HeaderText="SL" />
-                                    <asp:BoundField DataField="testNameColumn" HeaderText="TestSetup" />
+                                    <asp:BoundField DataField="testNameColumn" HeaderText="Test" />
                                     <asp:BoundField DataField="feeColumn" HeaderText="Fee" />
                                 </Columns>
                                 <EmptyDataTemplate>No Record Available</EmptyDataTemplate>

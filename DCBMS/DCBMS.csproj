@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.Master" />
+    <Content Include="Scripts\TestRequestEntry.js" />
+    <Content Include="Services\AjaxHandler.asmx" />
     <Content Include="Template\bootstrap\css\bootstrap.css.map" />
     <Content Include="Template\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Template\bootstrap\css\font-awesome.min.css" />
@@ -1073,11 +1075,15 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DLL\DAO\BillInfo.cs" />
     <Compile Include="DLL\DAO\TestDao.cs" />
+    <Compile Include="DLL\DAO\PatientInfo.cs" />
+    <Compile Include="DLL\DAO\TestInfo.cs" />
     <Compile Include="DLL\DAO\TestTypeDao.cs" />
     <Compile Include="DLL\Gateway\CommonGateway.cs" />
     <Compile Include="DLL\Gateway\DBconnection.cs" />
     <Compile Include="DLL\Gateway\TestGateway.cs" />
+    <Compile Include="DLL\Gateway\TestRequestEntryGateway.cs" />
     <Compile Include="DLL\Gateway\TestTypeGateway.cs" />
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
@@ -1087,8 +1093,13 @@
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Middleware\TestHelper.cs" />
+    <Compile Include="Middleware\TestRequestEntryHelper.cs" />
     <Compile Include="Middleware\TestTypeHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AjaxHandler.asmx.cs">
+      <DependentUpon>AjaxHandler.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
