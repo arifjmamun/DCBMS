@@ -64,7 +64,7 @@ namespace DCBMS.UI
         protected void saveTestSetupBtn_Click(object sender, EventArgs e)
         {
             if (testNameTextBox.Text != String.Empty && feeTextBox.Text != String.Empty &&
-                testTypeDropDown.SelectedIndex != -1)
+                testTypeDropDown.SelectedIndex != 0)
             {
                 string testName = testNameTextBox.Text;
                 decimal testFee = Convert.ToDecimal(feeTextBox.Text);
