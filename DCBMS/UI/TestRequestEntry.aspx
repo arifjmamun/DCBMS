@@ -61,7 +61,7 @@
                             <div class="form-group">
                                 <label for="feeTextBox" class="col-sm-offset-3 col-sm-2 control-label">Fee</label>
                                 <div class="col-sm-2">
-                                    <asp:TextBox ID="feeTextBox" runat="server" CssClass="form-control pull-left" ClientIDMode="Static" Enabled="False"></asp:TextBox>
+                                    <asp:TextBox ID="feeTextBox" runat="server" CssClass="form-control pull-left" ClientIDMode="Static"></asp:TextBox>
                                 </div>
                                 <div class="col-sm-1">
                                     <asp:Button CssClass="btn btn-info pull-right" ID="addRequestEntryBtn" runat="server" Text="Add" OnClick="addRequestEntryBtn_Click" />
@@ -69,12 +69,7 @@
                             </div>
 
                             <hr />
-                            <asp:GridView ID="testRequestEntryGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
-                                <Columns>
-                                    <asp:BoundField DataField="slColumn" HeaderText="SL" />
-                                    <asp:BoundField DataField="testNameColumn" HeaderText="Test" />
-                                    <asp:BoundField DataField="feeColumn" HeaderText="Fee" />
-                                </Columns>
+                            <asp:GridView ID="testRequestEntryGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="True" ShowHeaderWhenEmpty="True">
                                 <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                             </asp:GridView>
                             <hr />

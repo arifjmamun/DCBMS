@@ -17,8 +17,15 @@ namespace DCBMS.UI
         private void LoadGridView()
         {
             DataTable table = new DataTable();
+            table.Columns.AddRange(new DataColumn[]
+            {
+                new DataColumn("SL", typeof(string)), 
+                new DataColumn("Test", typeof(string)),
+                new DataColumn("Fee", typeof(decimal)),
+            });
             testRequestEntryGridView.DataSource = table;
             testRequestEntryGridView.DataBind();
+            ViewState["DataTable"] = table;
         }
 
         // Load All Test Name into Dropdown
@@ -30,6 +37,18 @@ namespace DCBMS.UI
                 selectTestDropDown.Items.Add(testName);
             }
         }
+
+        private void ShowTestInfoInGridview(TestInfo newTest)
+        {
+            DataTable table = (DataTable) ViewState["DataTable"];
+            DataRow newRow = table.NewRow();
+            newRow[0] = newTest.TestSerial;
+            newRow[1] = newTest.TestName;
+            newRow[2] = newTest.TestFee;
+            table.Rows.Add(newRow);
+            testRequestEntryGridView.DataSource = table;
+            testRequestEntryGridView.DataBind();
+        }
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,20 +56,29 @@ namespace DCBMS.UI
             {
                 LoadGridView();
                 LoadAllTestName();
+                feeTextBox.Attributes.Add("readonly", "readonly");
             }
         }
-
         protected void addRequestEntryBtn_Click(object sender, EventArgs e)
         {
             if (patientNameTextBox.Text != "" && dobTextBox.Text != "" && mobileNoTextBox.Text != "" &&
-                selectTestDropDown.SelectedIndex != 0 && feeTextBox.Text.All(Char.IsNumber))
+                selectTestDropDown.SelectedIndex != 0 && feeTextBox.Text != "")
             {
+                testCount = (ViewState["TestCount"] != null) ? (int)ViewState["TestCount"] : 0;
                 testCount++;
+                ViewState["TestCount"] = testCount;
                 string testName = selectTestDropDown.SelectedValue;
                 decimal testFee = Convert.ToDecimal(feeTextBox.Text);
-                TestInfo newTest = new TestInfo(testCount,testName,testFee);
+                TestInfo newTest = new TestInfo((int)ViewState["TestCount"], testName, testFee);
                 if (ViewState["TestList"] != null)
                 {
+                    foreach (TestInfo testInfo in (List<TestInfo>)ViewState["TestList"])
+                    {
+                        if (testInfo.TestName == testName)
+                        {
+                            // have to implement
+                        }
+                    }
                     List<TestInfo> testList = (List<TestInfo>)ViewState["TestList"];
                     testList.Add(newTest);
                 }
@@ -60,6 +88,7 @@ namespace DCBMS.UI
                     testList.Add(newTest);
                     ViewState["TestList"] = testList;
                 }
+                ShowTestInfoInGridview(newTest);
             }
             else
             {
