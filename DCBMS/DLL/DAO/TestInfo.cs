@@ -14,15 +14,13 @@ namespace DCBMS.DLL.DAO
         public decimal TestFee { get; private  set; }
         public string TestTypeName { get; set; }
 
-        public TestInfo(int testSerial, string testName, decimal testFee):this()
+        public TestInfo(string testName, decimal testFee):this(testName)
         {
-            TestSerial = testSerial;
-            TestName = testName;
             TestFee = testFee;
-            
         }
-        public TestInfo()
+        public TestInfo(string testName)
         {
+            TestName = testName;
             TestRequestEntryHelper testRequestEntryHelper = new TestRequestEntryHelper();
             TestTypeName = testRequestEntryHelper.GetTestTypeName(TestName);
         }

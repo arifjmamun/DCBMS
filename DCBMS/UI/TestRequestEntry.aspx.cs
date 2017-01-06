@@ -31,16 +31,49 @@ namespace DCBMS.UI
         // Load All Test Name into Dropdown
         private void LoadAllTestName()
         {
-            List<string> testNameList =  testRequestEntry.GetAllTestName();
+            List<string> testNameList = testRequestEntry.GetAllTestName();
             foreach (string testName in testNameList)
             {
                 selectTestDropDown.Items.Add(testName);
             }
         }
 
+        //Show warning if the field is empty or has invalid data against Regular expression
+        private void DisplayWarning()
+        {
+            if (ViewState["HasError"] != null)
+            {
+                ArrayList errorInfo = (ArrayList)ViewState["HasError"];
+                if ((bool)errorInfo[0])
+                {
+                    warningPanel.Visible = true;
+                    errorName.InnerHtml = "<i class='icon fa fa-warning'></i>" + (string)errorInfo[1];
+                    errorText.InnerText = (string)errorInfo[2];
+                    ViewState["HasError"] = null;
+                }
+            }
+            else
+            {
+                warningPanel.Visible = false;
+            }
+            //Regular expression implementation uncompleted
+        }
+
+        // Calculate Total amount of Test(s)
+        private void CalculateTotalAmount()
+        {
+            decimal totalAmount = 0;
+            foreach (TestInfo testInfo in (List<TestInfo>)ViewState["TestList"])
+            {
+                totalAmount += testInfo.TestFee;
+            }
+            totalTextBox.Text = totalAmount.ToString("F");
+        }
+
+        // Add test info in gridview with button click event
         private void ShowTestInfoInGridview(TestInfo newTest)
         {
-            DataTable table = (DataTable) ViewState["DataTable"];
+            DataTable table = (DataTable)ViewState["DataTable"];
             DataRow newRow = table.NewRow();
             newRow[0] = newTest.TestSerial;
             newRow[1] = newTest.TestName;
@@ -49,7 +82,7 @@ namespace DCBMS.UI
             testRequestEntryGridView.DataSource = table;
             testRequestEntryGridView.DataBind();
         }
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -57,6 +90,7 @@ namespace DCBMS.UI
                 LoadGridView();
                 LoadAllTestName();
                 feeTextBox.Attributes.Add("readonly", "readonly");
+                totalTextBox.Attributes.Add("readonly", "readonly");
             }
         }
         protected void addRequestEntryBtn_Click(object sender, EventArgs e)
@@ -64,41 +98,62 @@ namespace DCBMS.UI
             if (patientNameTextBox.Text != "" && dobTextBox.Text != "" && mobileNoTextBox.Text != "" &&
                 selectTestDropDown.SelectedIndex != 0 && feeTextBox.Text != "")
             {
-                testCount = (ViewState["TestCount"] != null) ? (int)ViewState["TestCount"] : 0;
-                testCount++;
-                ViewState["TestCount"] = testCount;
                 string testName = selectTestDropDown.SelectedValue;
                 decimal testFee = Convert.ToDecimal(feeTextBox.Text);
-                TestInfo newTest = new TestInfo((int)ViewState["TestCount"], testName, testFee);
+                TestInfo newTest;
+
                 if (ViewState["TestList"] != null)
                 {
+                    newTest = new TestInfo(testName, testFee);
+                    bool isTestAdded = false;
                     foreach (TestInfo testInfo in (List<TestInfo>)ViewState["TestList"])
                     {
                         if (testInfo.TestName == testName)
                         {
-                            // have to implement
+                            ViewState["HasError"] = new ArrayList
+                            {
+                                true,
+                                "Test already added!",
+                                "The test already added and the test cannot be added multiple time for a patient."
+                            };
+                            isTestAdded = true;
+                            break;
                         }
                     }
-                    List<TestInfo> testList = (List<TestInfo>)ViewState["TestList"];
-                    testList.Add(newTest);
+                    if (!isTestAdded)
+                    {
+                        testCount = (ViewState["TestCount"] != null) ? (int)ViewState["TestCount"] : 0;
+                        ViewState["TestCount"] = ++testCount;
+                        newTest.TestSerial = (int) ViewState["TestCount"];
+                        List<TestInfo> testList = (List<TestInfo>)ViewState["TestList"];
+                        testList.Add(newTest);
+                        ShowTestInfoInGridview(newTest);
+                        CalculateTotalAmount();
+                    }
                 }
                 else
                 {
+                    newTest = new TestInfo(testName, testFee);
+                    testCount = (ViewState["TestCount"] != null) ? (int)ViewState["TestCount"] : 0;
+                    ViewState["TestCount"] = ++testCount;
+                    newTest.TestSerial = (int)ViewState["TestCount"];
                     List<TestInfo> testList = new List<TestInfo>();
                     testList.Add(newTest);
                     ViewState["TestList"] = testList;
+                    ShowTestInfoInGridview(newTest);
+                    CalculateTotalAmount();
                 }
-                ShowTestInfoInGridview(newTest);
             }
             else
             {
                 ViewState["HasError"] = new ArrayList
-                    {
-                        true,
-                        "Invalid Data!",
-                        "None of the field(s) cannot be empty, You have to must select a Test Name & Test Fee should be numeric value."
-                    };
+                {
+                    true,
+                    "Invalid Data!",
+                    "None of the field(s) cannot be empty, You have to must select a Test Name & Test Fee should be numeric value."
+                };
             }
+            DisplayWarning();
         }
 
     }
