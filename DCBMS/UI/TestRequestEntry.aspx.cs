@@ -36,5 +36,10 @@ namespace DCBMS.UI
             }
         }
 
+        protected void addRequestEntryBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

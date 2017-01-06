@@ -55,5 +55,27 @@ namespace DCBMS.DLL.Gateway
                 Connection.Close();
             }
         }
+
+        public string GetBillId()
+        {
+            try
+            {
+                const string sqlQuery = @"SELECT COUNT(*) FROM bill_info";
+                Connection.Open();
+                Command.CommandText = sqlQuery;
+                int countBillId = (int) Command.ExecuteScalar() + 1;
+                string billId = "DCB-" + countBillId;
+                return billId;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
     }
 }

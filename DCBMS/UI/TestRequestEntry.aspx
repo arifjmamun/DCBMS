@@ -53,7 +53,7 @@
                                     <asp:TextBox ID="feeTextBox" runat="server" CssClass="form-control pull-left" ClientIDMode="Static" Enabled="False"></asp:TextBox>
                                 </div>
                                 <div class="col-sm-1">
-                                    <asp:Button CssClass="btn btn-info pull-right" ID="addRequestEntryBtn" runat="server" Text="Add" />
+                                    <asp:Button CssClass="btn btn-info pull-right" ID="addRequestEntryBtn" runat="server" Text="Add" OnClick="addRequestEntryBtn_Click" />
                                 </div>
                             </div>
 
