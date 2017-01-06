@@ -5,6 +5,7 @@ using System.Web;
 
 namespace DCBMS.DLL.DAO
 {
+    [Serializable]
     public class TestInfo
     {
         public string TestSerial { get; set; }

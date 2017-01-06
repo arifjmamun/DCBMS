@@ -5,6 +5,7 @@ using System.Web;
 
 namespace DCBMS.DLL.DAO
 {
+    [Serializable]
     public class BillInfo
     {
         public string BillId { get; set; }

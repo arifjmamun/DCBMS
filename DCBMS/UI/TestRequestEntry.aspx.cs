@@ -26,20 +26,7 @@ namespace DCBMS.UI
                 selectTestDropDown.Items.Add(testName);
             }
         }
-
-        // Load Test Fee accordingly when Test Name is changed
-        [System.Web.Services.WebMethod]
-        public static string LoadTestFee(string testName)
-        {
-            //if (selectTestDropDown.SelectedIndex != 0)
-            //{
-            //    string testName = selectTestDropDown.SelectedValue;
-            //    feeTextBox.Text =  testRequestEntry.GetTestFee(testName).ToString("F");
-            //}
-            //return testRequestEntry.GetTestFee(testName).ToString("F");
-            return testName;
-        }
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

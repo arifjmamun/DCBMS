@@ -196,5 +196,6 @@
     <script src="../Template/plugins/fastclick/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="../Template/dist/js/app.min.js"></script>
+    <script src="../Scripts/Custom.js"></script>
 </body>
 </html>

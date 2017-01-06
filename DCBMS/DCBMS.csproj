@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.Master" />
+    <Content Include="Scripts\Custom.js" />
     <Content Include="Scripts\TestRequestEntry.js" />
     <Content Include="Services\AjaxHandler.asmx" />
     <Content Include="Template\bootstrap\css\bootstrap.css.map" />
