@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using DCBMS.DLL.DAO;
 using DCBMS.DLL.Gateway;
 
 namespace DCBMS.Middleware
@@ -27,6 +28,11 @@ namespace DCBMS.Middleware
         public string GetTestTypeName(string testName)
         {
             return testRequestEntryGateway.GetTestTypeName(testName);
+        }
+
+        public void SavePatientBillInfo(PatientInfo newPatientInfo)
+        {
+            testRequestEntryGateway.SavePatientBillInfo(newPatientInfo);
         }
     }
 }

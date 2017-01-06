@@ -13,10 +13,10 @@ namespace DCBMS.DLL.DAO
         public decimal TotalAmount { get; private set; }
         public decimal PaidAmount { get; private set; }
         public decimal DueAmount { get; private set; }
-        public string BillDate { get; set; }
-        public List<TestInfo> TestList { get; set; }
+        public string BillDate { get; private set; }
+        public List<TestInfo> TestList { get; private set; }
 
-        public BillInfo(List<TestInfo> testList) :this()
+        public BillInfo(List<TestInfo> testList) 
         {
             if (testList.Count > 0)
             {
@@ -27,12 +27,9 @@ namespace DCBMS.DLL.DAO
                 DueAmount = TotalAmount;
                 PaidAmount = 0;
                 BillId = GenerateBillId();
+                BillDate = DateTime.Now.ToString("yyyy-MM-dd");
+                TestList = testList;
             }
-        }
-
-        public BillInfo()
-        {
-            TestList = new List<TestInfo>();
         }
 
         private string GenerateBillId()

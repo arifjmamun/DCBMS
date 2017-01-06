@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Web.UI;
 using DCBMS.DLL.DAO;
 using DCBMS.Middleware;
@@ -12,7 +11,7 @@ namespace DCBMS.UI
     public partial class TestRequest : Page
     {
         private int testCount;
-        TestRequestEntryHelper testRequestEntry = new TestRequestEntryHelper();
+        TestRequestEntryHelper testRequestEntryHelper = new TestRequestEntryHelper();
         //Show Gridview as a table
         private void LoadGridView()
         {
@@ -31,7 +30,7 @@ namespace DCBMS.UI
         // Load All Test Name into Dropdown
         private void LoadAllTestName()
         {
-            List<string> testNameList = testRequestEntry.GetAllTestName();
+            List<string> testNameList = testRequestEntryHelper.GetAllTestName();
             foreach (string testName in testNameList)
             {
                 selectTestDropDown.Items.Add(testName);
@@ -124,7 +123,7 @@ namespace DCBMS.UI
                     {
                         testCount = (ViewState["TestCount"] != null) ? (int)ViewState["TestCount"] : 0;
                         ViewState["TestCount"] = ++testCount;
-                        newTest.TestSerial = (int) ViewState["TestCount"];
+                        newTest.TestSerial = (int)ViewState["TestCount"];
                         List<TestInfo> testList = (List<TestInfo>)ViewState["TestList"];
                         testList.Add(newTest);
                         ShowTestInfoInGridview(newTest);
@@ -156,5 +155,27 @@ namespace DCBMS.UI
             DisplayWarning();
         }
 
+        protected void saveEntriesButton_Click(object sender, EventArgs e)
+        {
+            if (patientNameTextBox.Text != "" && dobTextBox.Text != "" && mobileNoTextBox.Text != "" && ViewState["TestList"] != null)
+            {
+                string patientName = patientNameTextBox.Text;
+                string birthDate = dobTextBox.Text;
+                string mobileNumber = mobileNoTextBox.Text;
+                BillInfo newBillInfo = new BillInfo((List<TestInfo>)ViewState["TestList"]);
+                PatientInfo newPatientInfo = new PatientInfo(patientName,mobileNumber, birthDate, newBillInfo);
+                testRequestEntryHelper.SavePatientBillInfo(newPatientInfo);
+            }
+            else
+            {
+                ViewState["HasError"] = new ArrayList
+                {
+                    true,
+                    "Invalid Data!",
+                    "None of the field(s) cannot be empty, You have to must select a Test Name & Test Fee should be numeric value."
+                };
+            }
+            DisplayWarning();
+        }
     }
 }
