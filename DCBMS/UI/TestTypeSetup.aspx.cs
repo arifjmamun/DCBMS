@@ -14,8 +14,6 @@ namespace DCBMS.UI
         //Show Gridview as a table
         private void LoadGridView()
         {
-            //testTypeGridView.DataSource = testTypeHelper.GetAllTestTypeAsTable();
-            //testTypeGridView.DataBind();
             DataTable table = new DataTable();
             table.Columns.AddRange(new DataColumn[]
             {

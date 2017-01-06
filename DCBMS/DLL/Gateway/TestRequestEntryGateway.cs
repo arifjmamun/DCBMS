@@ -77,5 +77,26 @@ namespace DCBMS.DLL.Gateway
                 Connection.Close();
             }
         }
+
+        public string GetTestTypeName(string testName)
+        {
+            try
+            {
+                string sqlQuery = @"SELECT test_type_name FROM test_setup WHERE test_name='" + testName + "'";
+                Connection.Open();
+                Command.CommandText = sqlQuery;
+                string testTypeName = (string)Command.ExecuteScalar();
+                return testTypeName;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
     }
 }

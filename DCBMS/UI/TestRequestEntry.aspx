@@ -16,6 +16,17 @@
                     <!-- /.box-header -->
                     <div class="form-horizontal">
                         <div class="box-body">
+                            
+                             <!--Alert goes here-->
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <asp:Panel CssClass="alert alert-warning alert-dismissible" runat="server" ID="warningPanel" ClientIDMode="Static" Visible="False">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4 id="errorName" runat="server"></h4>
+                                    <span runat="server" id="errorText"></span>
+                                </asp:Panel>
+                            </div>
+                            <!--Alert ends-->
+
                             <!--Name of the Patient-->
                             <div class="form-group">
                                 <label for="patientNameTextBox" class="col-sm-offset-3 col-sm-2 control-label">Name of the Patient</label>
@@ -27,7 +38,7 @@
                             <div class="form-group">
                                 <label for="dobTextBox" class="col-sm-offset-3 col-sm-2 control-label">Date of Birth</label>
                                 <div class="col-sm-3">
-                                    <asp:TextBox ID="dobTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                    <asp:TextBox ID="dobTextBox" runat="server" CssClass="form-control dateCalander" ClientIDMode="Static"></asp:TextBox>
                                 </div>
                             </div>
                             <!--Mobile No-->

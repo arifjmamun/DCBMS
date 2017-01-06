@@ -23,5 +23,10 @@ namespace DCBMS.Middleware
         {
             return testRequestEntryGateway.GetBillId();
         }
+
+        public string GetTestTypeName(string testName)
+        {
+            return testRequestEntryGateway.GetTestTypeName(testName);
+        }
     }
 }
