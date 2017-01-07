@@ -87,7 +87,6 @@ namespace DCBMS.UI
         private void GetPdfFileOfBill(PatientInfo newPatientInfo)
         {
             Session["PatientInfo"] = newPatientInfo;
-            Response.Write("<script>window.open('Invoice.aspx','_blank')</script>");
         }
 
         // Clear info from ViewState after save the Data to Database
@@ -181,8 +180,8 @@ namespace DCBMS.UI
                 BillInfo newBillInfo = new BillInfo((List<TestInfo>)ViewState["TestList"]);
                 PatientInfo newPatientInfo = new PatientInfo(patientName, mobileNumber, birthDate, newBillInfo);
                 testRequestEntryHelper.SavePatientBillInfo(newPatientInfo);
-                ClearInformation();
                 GetPdfFileOfBill(newPatientInfo);
+                ClearInformation();
             }
             else
             {

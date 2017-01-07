@@ -22,6 +22,24 @@ namespace DCBMS.UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// errorInfoPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel errorInfoPanel;
+        
+        /// <summary>
+        /// InvoicePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel InvoicePanel;
+        
+        /// <summary>
         /// patientNameLabel control.
         /// </summary>
         /// <remarks>

@@ -82,7 +82,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-9 col-sm-3">
-                                    <asp:Button CssClass="btn btn-info pull-right" ID="saveEntriesButton" runat="server" Text="Save" OnClick="saveEntriesButton_Click" />
+                                    <asp:Button CssClass="btn btn-info pull-right" ID="saveEntriesButton" runat="server" Text="Save" OnClick="saveEntriesButton_Click" OnClientClick="OpenPdfBill()" />
                                 </div>
                             </div>
                         </div>
@@ -93,6 +93,12 @@
             <!--/.col (right) -->
         </div>
         <!-- /.row -->
+        <script type = "text/javascript">
+            function OpenPdfBill() {
+                var win = window.open("Invoice.aspx", "_blank");
+                win.focus();
+            }
+        </script>
     </section>
     <!-- /.content -->
 </asp:Content>

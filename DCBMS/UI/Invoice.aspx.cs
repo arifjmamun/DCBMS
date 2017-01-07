@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Web;
 using System.Web.UI;
+using DCBMS.DLL.DAO;
 using EvoPdf;
 
 namespace DCBMS.UI
@@ -11,7 +13,15 @@ namespace DCBMS.UI
         bool convertToPdf = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-            convertToPdf = true;
+            if (Session["PatientInfo"] == null)
+            {
+                errorInfoPanel.Visible = true;
+            }
+            else
+            {
+                InvoicePanel.Visible = true;
+                convertToPdf = true;
+            }
         }
         //protected override void Render(HtmlTextWriter writer)
         //{
@@ -66,7 +76,9 @@ namespace DCBMS.UI
 
         private void AddTestInfoToGridView()
         {
-
+            List<TestInfo> testList = (List<TestInfo>)Session["PatientInfo"];
+            billGridView.DataSource = testList;
+            billGridView.DataBind();
         }
     }
 }
