@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace DCBMS.DLL.DAO
+﻿namespace DCBMS.DLL.DAO
 {
     public class TestDao
     {

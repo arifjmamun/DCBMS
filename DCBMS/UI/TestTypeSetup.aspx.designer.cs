@@ -7,6 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+
 namespace DCBMS.UI {
     
     
@@ -19,7 +22,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel warningPanel;
+        protected Panel warningPanel;
         
         /// <summary>
         /// errorName control.
@@ -28,7 +31,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorName;
+        protected HtmlGenericControl errorName;
         
         /// <summary>
         /// errorText control.
@@ -37,7 +40,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorText;
+        protected HtmlGenericControl errorText;
         
         /// <summary>
         /// typeNameTextBox control.
@@ -46,7 +49,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox typeNameTextBox;
+        protected TextBox typeNameTextBox;
         
         /// <summary>
         /// saveTestTypeBtn control.
@@ -55,7 +58,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveTestTypeBtn;
+        protected Button saveTestTypeBtn;
         
         /// <summary>
         /// testTypeGridView control.
@@ -64,6 +67,6 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView testTypeGridView;
+        protected GridView testTypeGridView;
     }
 }

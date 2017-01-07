@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel;
+using System.Web.Script.Services;
 using System.Web.Services;
 using DCBMS.Middleware;
 
@@ -12,10 +10,10 @@ namespace DCBMS.Services
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-    [System.ComponentModel.ToolboxItem(false)]
+    [ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    [System.Web.Script.Services.ScriptService]
-    public class AjaxHandler : System.Web.Services.WebService
+    [ScriptService]
+    public class AjaxHandler : WebService
     {
         TestRequestEntryHelper testRequestEntry = new TestRequestEntryHelper();
         [WebMethod]

@@ -7,65 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Web.UI.WebControls;
-
 namespace DCBMS.UI {
     
     
-    public partial class TypeWiseReport {
+    public partial class Invoice {
         
         /// <summary>
-        /// fromDateTextBox control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected TextBox fromDateTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// toDateTextBox control.
+        /// patientNameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected TextBox toDateTextBox;
+        protected global::System.Web.UI.WebControls.Label patientNameLabel;
         
         /// <summary>
-        /// showReportBtn control.
+        /// birthDateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected Button showReportBtn;
+        protected global::System.Web.UI.WebControls.Label birthDateLabel;
         
         /// <summary>
-        /// typeWiseReportGridView control.
+        /// phoneNumberLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected GridView typeWiseReportGridView;
+        protected global::System.Web.UI.WebControls.Label phoneNumberLabel;
         
         /// <summary>
-        /// generatePdfButton control.
+        /// billIdLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected Button generatePdfButton;
+        protected global::System.Web.UI.WebControls.Label billIdLabel;
         
         /// <summary>
-        /// totalTextBox control.
+        /// billDateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected TextBox totalTextBox;
+        protected global::System.Web.UI.WebControls.Label billDateLabel;
+        
+        /// <summary>
+        /// billGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView billGridView;
     }
 }

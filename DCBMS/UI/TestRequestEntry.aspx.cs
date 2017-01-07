@@ -12,6 +12,7 @@ namespace DCBMS.UI
     {
         private int testCount;
         TestRequestEntryHelper testRequestEntryHelper = new TestRequestEntryHelper();
+        
         //Show Gridview as a table
         private void LoadGridView()
         {
@@ -82,6 +83,20 @@ namespace DCBMS.UI
             testRequestEntryGridView.DataBind();
         }
 
+        // Get PDF file for that bill
+        private void GetPdfFileOfBill(PatientInfo newPatientInfo)
+        {
+            Session["PatientInfo"] = newPatientInfo;
+            Response.Write("<script>window.open('Invoice.aspx','_blank')</script>");
+        }
+
+        // Clear info from ViewState after save the Data to Database
+        private void ClearInformation()
+        {
+            ViewState.Clear();
+            Response.Redirect("TestRequestEntry.aspx");
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -92,6 +107,7 @@ namespace DCBMS.UI
                 totalTextBox.Attributes.Add("readonly", "readonly");
             }
         }
+
         protected void addRequestEntryBtn_Click(object sender, EventArgs e)
         {
             if (patientNameTextBox.Text != "" && dobTextBox.Text != "" && mobileNoTextBox.Text != "" &&
@@ -163,8 +179,10 @@ namespace DCBMS.UI
                 string birthDate = dobTextBox.Text;
                 string mobileNumber = mobileNoTextBox.Text;
                 BillInfo newBillInfo = new BillInfo((List<TestInfo>)ViewState["TestList"]);
-                PatientInfo newPatientInfo = new PatientInfo(patientName,mobileNumber, birthDate, newBillInfo);
+                PatientInfo newPatientInfo = new PatientInfo(patientName, mobileNumber, birthDate, newBillInfo);
                 testRequestEntryHelper.SavePatientBillInfo(newPatientInfo);
+                ClearInformation();
+                GetPdfFileOfBill(newPatientInfo);
             }
             else
             {

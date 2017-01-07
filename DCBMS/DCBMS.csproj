@@ -38,6 +38,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="evohtmltopdf, Version=6.16.0.0, Culture=neutral, PublicKeyToken=e1fcbb86597de299, processorArchitecture=MSIL">
+      <HintPath>..\packages\EvoHtmlToPdf_x64.6.16\lib\net40\evohtmltopdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -192,6 +196,7 @@
     <Content Include="Template\bootstrap\fonts\ionicons.eot" />
     <Content Include="Template\bootstrap\fonts\ionicons.ttf" />
     <Content Include="Template\bootstrap\fonts\ionicons.woff" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1066,6 +1071,7 @@
     <Content Include="Template\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Template\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Template\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="UI\Invoice.aspx" />
     <Content Include="UI\Payment.aspx" />
     <Content Include="UI\TestRequestEntry.aspx" />
     <Content Include="UI\TestSetup.aspx" />
@@ -1100,6 +1106,13 @@
     <Compile Include="Services\AjaxHandler.asmx.cs">
       <DependentUpon>AjaxHandler.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Invoice.aspx.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Invoice.aspx.designer.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
