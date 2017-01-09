@@ -29,6 +29,7 @@ namespace DCBMS.UI
                 {
                     ShowTestInfoInGridView(billInfo.TestList);
                     ShowBillInfo(billInfo);
+                    ViewState["BillInfo"] = billInfo;
                 }
                 else
                 {
@@ -56,7 +57,43 @@ namespace DCBMS.UI
 
         protected void payBillButton_Click(object sender, EventArgs e)
         {
-
+            if (ViewState["BillInfo"] != null)
+            {
+                BillInfo billInfo = (BillInfo)ViewState["BillInfo"];
+                decimal payAmount;
+                bool isDecimalValue = Decimal.TryParse(amountTextBox.Text, out payAmount);
+                if (isDecimalValue && payAmount > 0 && billInfo.DueAmount > 0 && payAmount <= billInfo.DueAmount)
+                {
+                    bool isPaid = paymentHelper.UpdateDueAmount(billInfo.BillId, payAmount);
+                    if (isPaid)
+                    {
+                        messageLabel.Text = "Bill Id: "+billInfo.BillId+", Paid: "+payAmount+" Taka, Due Remaining: "+(billInfo.DueAmount-payAmount)+" Taka.";
+                        ViewState.Remove("BillInfo");
+                        ClearInformation();
+                    }
+                }
+                else
+                {
+                    ViewState["HasError"] = new ArrayList
+                    {
+                        true,
+                        "Invalid data!",
+                        "Amount must be numerical, bill must have due & pay amount must be less or equal to due amount."
+                    };
+                    amountTextBox.Text = String.Empty;
+                }
+            }
+            else
+            {
+                ViewState["HasError"] = new ArrayList
+                {
+                    true,
+                    "Bill Id is Empty!",
+                    "Bill Id cannot be empty! You must have to add a valid Bill Id."
+                };
+                ClearInformation();
+            }
+            DisplayWarning();
         }
 
         private void InitiateGridView()

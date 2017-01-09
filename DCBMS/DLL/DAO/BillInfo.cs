@@ -32,8 +32,9 @@ namespace DCBMS.DLL.DAO
         }
 
         // For Getting Value through the constructor
-        public BillInfo(decimal totalAmount, decimal paidAmount, decimal dueAmount, string billDate, List<TestInfo> testList)
+        public BillInfo(string billId, decimal totalAmount, decimal paidAmount, decimal dueAmount, string billDate, List<TestInfo> testList)
         {
+            BillId = billId;
             TotalAmount = totalAmount;
             PaidAmount = paidAmount;
             DueAmount = dueAmount;

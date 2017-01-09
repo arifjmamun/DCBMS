@@ -59,22 +59,22 @@
                             <!--Bill Date-->
                             <div class="form-group">
                                 <label class="col-sm-offset-4 col-sm-2 control-label">Bill Date</label>
-                                <asp:Label runat="server" Text="" class="col-sm-2 control-label" ID="billDateLabel"></asp:Label>
+                                <label  class="col-sm-2 control-label pull-left"><asp:Label runat="server" Text="" ID="billDateLabel"></asp:Label></label>
                             </div>
                              <!--Total Fee-->
                             <div class="form-group">
                                 <label class="col-sm-offset-4 col-sm-2 control-label">Total Fee</label>
-                                <asp:Label runat="server" Text="" class="col-sm-2 control-label" ID="totalFeeLabel"></asp:Label>
+                                <label  class="col-sm-2 control-label pull-left"><asp:Label runat="server" Text="" ID="totalFeeLabel"></asp:Label></label>
                             </div>
                              <!--Paid Amount-->
                             <div class="form-group">
                                 <label class="col-sm-offset-4 col-sm-2 control-label">Paid Amount</label>
-                                <asp:Label runat="server" Text="" class="col-sm-2 control-label" ID="paidAmountLabel"></asp:Label>
+                                <label  class="col-sm-2 control-label pull-left"><asp:Label runat="server" Text="" ID="paidAmountLabel"></asp:Label></label>
                             </div>
                             <!--Due Amount-->
                             <div class="form-group">
                                 <label class="col-sm-offset-4 col-sm-2 control-label">Due Amount</label>
-                                <asp:Label runat="server" Text="" class="col-sm-2 control-label" ID="dueAmountLabel"></asp:Label>
+                                <label class="col-sm-2 control-label pull-left"><asp:Label runat="server" Text="" ID="dueAmountLabel"></asp:Label></label>
                             </div>
                             <hr />
                             <!--Paying Amount-->
