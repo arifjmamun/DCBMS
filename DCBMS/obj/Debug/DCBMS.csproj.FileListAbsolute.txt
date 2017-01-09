@@ -6,3 +6,4 @@ H:\BASIS\Personal\Project- Diagonostic Center Bill Management\DCBMS\DCBMS\bin\ev
 H:\BASIS\Personal\Project- Diagonostic Center Bill Management\DCBMS\DCBMS\bin\evointernal.dat
 H:\BASIS\Personal\Project- Diagonostic Center Bill Management\DCBMS\DCBMS\obj\Debug\DCBMS.dll
 H:\BASIS\Personal\Project- Diagonostic Center Bill Management\DCBMS\DCBMS\obj\Debug\DCBMS.pdb
+H:\BASIS\Personal\Project- Diagonostic Center Bill Management\DCBMS\DCBMS\obj\Debug\DCBMS.csprojResolveAssemblyReference.cache

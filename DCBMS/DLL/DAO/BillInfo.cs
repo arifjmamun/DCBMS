@@ -14,6 +14,7 @@ namespace DCBMS.DLL.DAO
         public string BillDate { get; private set; }
         public List<TestInfo> TestList { get; private set; }
 
+        // For Setting Value [Inserting Value to Database]
         public BillInfo(List<TestInfo> testList) 
         {
             if (testList.Count > 0)
@@ -28,6 +29,16 @@ namespace DCBMS.DLL.DAO
                 BillDate = DateTime.Now.ToString("yyyy-MM-dd");
                 TestList = testList;
             }
+        }
+
+        // For Getting Value through the constructor
+        public BillInfo(decimal totalAmount, decimal paidAmount, decimal dueAmount, string billDate, List<TestInfo> testList)
+        {
+            TotalAmount = totalAmount;
+            PaidAmount = paidAmount;
+            DueAmount = dueAmount;
+            BillDate = billDate;
+            TestList = testList;
         }
 
         private string GenerateBillId()

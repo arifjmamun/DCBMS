@@ -1089,6 +1089,7 @@
     <Compile Include="DLL\DAO\TestTypeDao.cs" />
     <Compile Include="DLL\Gateway\CommonGateway.cs" />
     <Compile Include="DLL\Gateway\DBconnection.cs" />
+    <Compile Include="DLL\Gateway\PaymentGateway.cs" />
     <Compile Include="DLL\Gateway\TestGateway.cs" />
     <Compile Include="DLL\Gateway\TestRequestEntryGateway.cs" />
     <Compile Include="DLL\Gateway\TestTypeGateway.cs" />
@@ -1099,6 +1100,7 @@
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
+    <Compile Include="Middleware\PaymentHelper.cs" />
     <Compile Include="Middleware\TestHelper.cs" />
     <Compile Include="Middleware\TestRequestEntryHelper.cs" />
     <Compile Include="Middleware\TestTypeHelper.cs" />

@@ -16,6 +16,17 @@
                     <!-- /.box-header -->
                     <div class="form-horizontal">
                         <div class="box-body">
+                            
+                            <!--Alert goes here-->
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <asp:Panel CssClass="alert alert-warning alert-dismissible" runat="server" ID="warningPanel" ClientIDMode="Static" Visible="False">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4 id="errorName" runat="server"></h4>
+                                    <span runat="server" id="errorText"></span>
+                                </asp:Panel>
+                            </div>
+                            <!--Alert ends-->
+
                             <!--Bill No-->
                             <div class="form-group">
                                 <label for="billNoTextBox" class="col-sm-offset-3 col-sm-2 control-label">Bill No.</label>
@@ -23,36 +34,62 @@
                                     <asp:TextBox ID="billNoTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                                 </div>
                                 <div class="col-sm-3">
-                                    <span>Or</span>
+                                    <asp:Button CssClass="btn btn-info" ID="searchBillInfoBtn" runat="server" Text="Search" OnClick="searchBillInfoBtn_Click" />
                                 </div>
                             </div>
-                            <!--Mobile No.-->
+
+                            <hr />
+
+                            <asp:GridView ID="testInfoGridView" CssClass="table table-striped" runat="server" AutoGenerateColumns="False" GridLines="None" ClientIDMode="Static" ShowHeaderWhenEmpty="True">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="SL">
+                                        <ItemTemplate><%#Eval("TestSerial") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Test">
+                                        <ItemTemplate><%#Eval("TestName") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Fee">
+                                        <ItemTemplate><%#Eval("TestFee") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                                <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
+                            </asp:GridView>
+
+                            <hr />
+                            <!--Bill Date-->
                             <div class="form-group">
-                                <label for="mobileNoTextBox" class="col-sm-offset-3 col-sm-2 control-label">Mobile No.</label>
-                                <div class="col-sm-3">
-                                    <asp:TextBox ID="mobileNoTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
-                                </div>
-                                <div class="col-sm-3">
-                                    <asp:Button CssClass="btn btn-info" ID="searchBillInfoBtn" runat="server" Text="Search" />
-                                </div>
+                                <label class="col-sm-offset-4 col-sm-2 control-label">Bill Date</label>
+                                <asp:Label runat="server" Text="" class="col-sm-2 control-label" ID="billDateLabel"></asp:Label>
+                            </div>
+                             <!--Total Fee-->
+                            <div class="form-group">
+                                <label class="col-sm-offset-4 col-sm-2 control-label">Total Fee</label>
+                                <asp:Label runat="server" Text="" class="col-sm-2 control-label" ID="totalFeeLabel"></asp:Label>
+                            </div>
+                             <!--Paid Amount-->
+                            <div class="form-group">
+                                <label class="col-sm-offset-4 col-sm-2 control-label">Paid Amount</label>
+                                <asp:Label runat="server" Text="" class="col-sm-2 control-label" ID="paidAmountLabel"></asp:Label>
+                            </div>
+                            <!--Due Amount-->
+                            <div class="form-group">
+                                <label class="col-sm-offset-4 col-sm-2 control-label">Due Amount</label>
+                                <asp:Label runat="server" Text="" class="col-sm-2 control-label" ID="dueAmountLabel"></asp:Label>
                             </div>
                             <hr />
-                            <!--Bill Amount-->
+                            <!--Paying Amount-->
                             <div class="form-group">
-                                <label for="billAmountTextBox" class="col-sm-offset-3 col-sm-2 control-label">Amount</label>
+                                <label for="amountTextBox" class="col-sm-offset-3 col-sm-2 control-label">Amount</label>
                                 <div class="col-sm-3">
-                                    <asp:TextBox ID="billAmountTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                    <asp:TextBox ID="amountTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-3">
+                                    <asp:Button CssClass="btn btn-info" ID="payBillButton" runat="server" Text="Pay" OnClick="payBillButton_Click" />
                                 </div>
                             </div>
-                            <!--Due Date-->
+                            <!--MessageLabel-->
                             <div class="form-group">
-                                <label for="dueDateTextBox" class="col-sm-offset-3 col-sm-2 control-label">Due Date</label>
-                                <div class="col-sm-3">
-                                    <asp:TextBox ID="dueDateTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
-                                </div>
-                                <div class="col-sm-3">
-                                    <asp:Button CssClass="btn btn-info" ID="payBillButton" runat="server" Text="Pay" />
-                                </div>
+                                <label class="control-label col-sm-offset-3 col-sm-5"><asp:Label runat="server" ID="messageLabel" Text=""></asp:Label></label>
                             </div>
                         </div>
                         <!-- /.box-body -->

@@ -7,12 +7,37 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Web.UI.WebControls;
-
 namespace DCBMS.UI {
     
     
     public partial class Payment {
+        
+        /// <summary>
+        /// warningPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel warningPanel;
+        
+        /// <summary>
+        /// errorName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorName;
+        
+        /// <summary>
+        /// errorText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorText;
         
         /// <summary>
         /// billNoTextBox control.
@@ -21,16 +46,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected TextBox billNoTextBox;
-        
-        /// <summary>
-        /// mobileNoTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected TextBox mobileNoTextBox;
+        protected global::System.Web.UI.WebControls.TextBox billNoTextBox;
         
         /// <summary>
         /// searchBillInfoBtn control.
@@ -39,25 +55,61 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected Button searchBillInfoBtn;
+        protected global::System.Web.UI.WebControls.Button searchBillInfoBtn;
         
         /// <summary>
-        /// billAmountTextBox control.
+        /// testInfoGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected TextBox billAmountTextBox;
+        protected global::System.Web.UI.WebControls.GridView testInfoGridView;
         
         /// <summary>
-        /// dueDateTextBox control.
+        /// billDateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected TextBox dueDateTextBox;
+        protected global::System.Web.UI.WebControls.Label billDateLabel;
+        
+        /// <summary>
+        /// totalFeeLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label totalFeeLabel;
+        
+        /// <summary>
+        /// paidAmountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label paidAmountLabel;
+        
+        /// <summary>
+        /// dueAmountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label dueAmountLabel;
+        
+        /// <summary>
+        /// amountTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox amountTextBox;
         
         /// <summary>
         /// payBillButton control.
@@ -66,6 +118,15 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected Button payBillButton;
+        protected global::System.Web.UI.WebControls.Button payBillButton;
+        
+        /// <summary>
+        /// messageLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label messageLabel;
     }
 }
