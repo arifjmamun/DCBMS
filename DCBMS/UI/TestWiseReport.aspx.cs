@@ -3,9 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.IO;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 using DCBMS.DLL.DAO;
 using DCBMS.Middleware;
+using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html;
+using System.Text;
 
 namespace DCBMS.UI
 {
@@ -14,18 +23,22 @@ namespace DCBMS.UI
         ReportHelper reportHelper = new ReportHelper();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
+            if (!IsPostBack)
             {
                 InitiateGridView();
+                totalTextBox.Attributes.Add("readonly", "readonly");
             }
         }
-
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            /* Verifies that the control is rendered */
+        }
         protected void showReportBtn_Click(object sender, EventArgs e)
         {
             DateTime fromDate, toDate;
             bool isFromDate = DateTime.TryParseExact(fromDateTextBox.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDate);
             bool isToDate = DateTime.TryParseExact(toDateTextBox.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out toDate);
-            if (isFromDate && isToDate && fromDate.Date < toDate.Date)
+            if (isFromDate && isToDate && fromDate.Date <= toDate.Date)
             {
                 ShowTestWiseReport(fromDate.ToString("yyyy-MM-dd"), toDate.ToString("yyyy-MM-dd"));
             }
@@ -42,9 +55,29 @@ namespace DCBMS.UI
             DisplayWarning();
         }
 
+        // Working
         protected void generatePdfButton_Click(object sender, EventArgs e)
         {
-
+            reportHeading.Visible = true;
+            testWiseReportGridView.GridLines = GridLines.Both;
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition",
+             "attachment;filename=GridViewExport.pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            gridViewWrapper.RenderControl(hw);
+            StringReader sr = new StringReader (sw.ToString());
+            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            htmlparser.Parse(sr);
+            pdfDoc.Close();
+            Response.Write(pdfDoc);
+            Response.End();
+            reportHeading.Visible = false;
+            testWiseReportGridView.GridLines = GridLines.None;
         }
 
         private void InitiateGridView()
@@ -59,9 +92,14 @@ namespace DCBMS.UI
             List<TestReport> testReports = reportHelper.GetTestWiseReport(fromDate, toDate);
             testWiseReportGridView.DataSource = testReports;
             testWiseReportGridView.DataBind();
+            decimal totalAmount = 0;
+            foreach (TestReport testReport in testReports)
+            {
+                totalAmount = totalAmount + testReport.TotalAmount;
+            }
+            totalTextBox.Text = totalAmount.ToString("F");
         }
 
-        //Show warning if the field is empty or has invalid data against Regular expression
         private void DisplayWarning()
         {
             if (ViewState["HasError"] != null)
@@ -82,7 +120,6 @@ namespace DCBMS.UI
             //Regular expression implementation uncompleted
         }
 
-        //Clear Fields
         private void ClearFields()
         {
             //fromDateTextBox.Text = String.Empty;
@@ -90,5 +127,6 @@ namespace DCBMS.UI
             InitiateGridView();
             totalTextBox.Text = String.Empty;
         }
+
     }
 }

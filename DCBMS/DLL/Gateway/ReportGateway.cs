@@ -8,7 +8,6 @@ namespace DCBMS.DLL.Gateway
 {
     public class ReportGateway : CommonGateway
     {
-
         public List<TestReport> GetTestWiseReport(string fromDate, string toDate)
         {
             try
@@ -46,5 +45,7 @@ namespace DCBMS.DLL.Gateway
                 Connection.Close();
             }
         }
+
+
     }
 }

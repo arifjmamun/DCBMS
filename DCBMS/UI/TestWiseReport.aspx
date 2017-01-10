@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestWiseReport.aspx.cs" Inherits="DCBMS.UI.TestWiseReport" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestWiseReport.aspx.cs" Inherits="DCBMS.UI.TestWiseReport" EnableEventValidation="false" %>
 
 <asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -16,7 +16,7 @@
                     <!-- /.box-header -->
                     <div class="form-horizontal">
                         <div class="box-body">
-                            
+
                             <!--Alert goes here-->
                             <div class="col-sm-offset-3 col-sm-6">
                                 <asp:Panel CssClass="alert alert-warning alert-dismissible" runat="server" ID="warningPanel" ClientIDMode="Static" Visible="False">
@@ -45,23 +45,26 @@
                                 </div>
                             </div>
                             <hr />
-                            <asp:GridView ID="testWiseReportGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
-                                <Columns>
-                                    <asp:TemplateField HeaderText="SL">
-                                        <ItemTemplate><%#Eval("Serial") %></ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Test Name">
-                                        <ItemTemplate><%#Eval("TestName") %></ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Total Test">
-                                        <ItemTemplate><%#Eval("TotalTest") %></ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Total Amount">
-                                        <ItemTemplate><%#Eval("TotalAmount") %></ItemTemplate>
-                                    </asp:TemplateField>
-                                </Columns>
-                                <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
-                            </asp:GridView>
+                            <asp:Panel runat="server" ID="gridViewWrapper">
+                                <h1 runat="server" Visible="False" id="reportHeading" align="center">Test Wise Report</h1>
+                                <asp:GridView ID="testWiseReportGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" AllowPaging="True">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="SL">
+                                            <ItemTemplate><%#Eval("Serial") %></ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Test Name">
+                                            <ItemTemplate><%#Eval("TestName") %></ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Total Test">
+                                            <ItemTemplate><%#Eval("TotalTest") %></ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Total Amount">
+                                            <ItemTemplate><%#Eval("TotalAmount") %></ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
+                                </asp:GridView>
+                            </asp:Panel>
                             <hr />
                             <!--Total-->
                             <div class="form-group">
