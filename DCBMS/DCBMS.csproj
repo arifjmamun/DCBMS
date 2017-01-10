@@ -197,17 +197,6 @@
     <Content Include="Template\bootstrap\fonts\ionicons.ttf" />
     <Content Include="Template\bootstrap\fonts\ionicons.woff" />
     <Content Include="packages.config" />
-    <Content Include="DCBMS.xsc">
-      <DependentUpon>DCBMS.xsd</DependentUpon>
-    </Content>
-    <None Include="DCBMS.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DCBMS.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="DCBMS.xss">
-      <DependentUpon>DCBMS.xsd</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1093,15 +1082,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DCBMS.cs">
-      <DependentUpon>DCBMS.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DCBMS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DCBMS.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DLL\DAO\BillInfo.cs" />
     <Compile Include="DLL\DAO\TestDao.cs" />
     <Compile Include="DLL\DAO\PatientInfo.cs" />
@@ -1189,9 +1169,6 @@
     <Compile Include="UI\UnpaidBillReport.aspx.designer.cs">
       <DependentUpon>UnpaidBillReport.aspx</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="InvoiceReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

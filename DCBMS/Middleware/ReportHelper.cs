@@ -15,5 +15,10 @@ namespace DCBMS.Middleware
         {
             return _reportGateway.GetTestWiseReport(fromDate, toDate);
         }
+
+        public List<TestReport> GetTypeWiseReport(string fromDate, string toDate)
+        {
+            return _reportGateway.GetTypeWiseReport(fromDate, toDate);
+        }
     }
 }
