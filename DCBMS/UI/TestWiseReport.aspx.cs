@@ -27,7 +27,7 @@ namespace DCBMS.UI
             bool isToDate = DateTime.TryParseExact(toDateTextBox.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out toDate);
             if (isFromDate && isToDate && fromDate.Date < toDate.Date)
             {
-
+                ShowTestWiseReport(fromDate.ToString("yyyy-MM-dd"), toDate.ToString("yyyy-MM-dd"));
             }
             else
             {
@@ -37,6 +37,7 @@ namespace DCBMS.UI
                     "Invalid Date!",
                     "You must enter a valid date and 'From' date must be earlier than 'To' date"
                 };
+                ClearFields();
             }
             DisplayWarning();
         }
@@ -79,6 +80,15 @@ namespace DCBMS.UI
                 warningPanel.Visible = false;
             }
             //Regular expression implementation uncompleted
+        }
+
+        //Clear Fields
+        private void ClearFields()
+        {
+            //fromDateTextBox.Text = String.Empty;
+            //toDateTextBox.Text = String.Empty;
+            InitiateGridView();
+            totalTextBox.Text = String.Empty;
         }
     }
 }

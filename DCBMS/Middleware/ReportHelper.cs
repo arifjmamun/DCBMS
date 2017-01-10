@@ -13,8 +13,7 @@ namespace DCBMS.Middleware
 
         public List<TestReport> GetTestWiseReport(string fromDate, string toDate)
         {
-            return _reportGateway.GetTestWiseReport(fromDate, toDate)
-            ;
+            return _reportGateway.GetTestWiseReport(fromDate, toDate);
         }
     }
 }

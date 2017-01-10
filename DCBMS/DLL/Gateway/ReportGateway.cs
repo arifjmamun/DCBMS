@@ -16,9 +16,10 @@ namespace DCBMS.DLL.Gateway
                 List<TestReport> testReports = new List<TestReport>();
                 const string sqlQuery = @"SELECT test_setup.test_name, COUNT(test_info.test_name) AS total_test, SUM(test_info.test_fee) as total_amount 
                                         FROM test_setup
-                                        FULL OUTER JOIN test_info 
+                                        LEFT JOIN test_info 
                                         ON test_setup.test_name = test_info.test_name AND test_info.test_date BETWEEN @FromDate AND @ToDate
                                         GROUP BY test_setup.test_name, test_info.test_name";
+                Connection.Open();
                 Command.CommandText = sqlQuery;
                 Command.Parameters.Clear();
                 Command.Parameters.AddWithValue("@FromDate", fromDate);
@@ -26,12 +27,19 @@ namespace DCBMS.DLL.Gateway
                 Reader = Command.ExecuteReader();
                 if (Reader.HasRows)
                 {
+                    int serial = 0;
                     while (Reader.Read())
                     {
-                        
+                        string serialNo = (++serial).ToString();
+                        string testName = Reader["test_name"].ToString();
+                        int totalTest = Convert.ToInt32(Reader["total_test"]);
+                        decimal totalAmount = (Reader["total_amount"] != DBNull.Value) ? Convert.ToDecimal(Reader["total_amount"]) : 0;
+                        TestReport testReport = new TestReport(serialNo, testName, totalTest, totalAmount);
+                        testReports.Add(testReport);
                     }
+                    Reader.Close();
                 }
-                Connection.Open();
+                return testReports;
             }
             finally
             {
