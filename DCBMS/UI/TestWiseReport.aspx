@@ -16,6 +16,17 @@
                     <!-- /.box-header -->
                     <div class="form-horizontal">
                         <div class="box-body">
+                            
+                            <!--Alert goes here-->
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <asp:Panel CssClass="alert alert-warning alert-dismissible" runat="server" ID="warningPanel" ClientIDMode="Static" Visible="False">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4 id="errorName" runat="server"></h4>
+                                    <span runat="server" id="errorText"></span>
+                                </asp:Panel>
+                            </div>
+                            <!--Alert ends-->
+
                             <!--From Date-->
                             <div class="form-group">
                                 <label for="fromDateTextBox" class="col-sm-offset-3 col-sm-2 control-label">From Date</label>
@@ -30,7 +41,7 @@
                                     <asp:TextBox ID="toDateTextBox" runat="server" CssClass="form-control dateCalander" ClientIDMode="Static"></asp:TextBox>
                                 </div>
                                 <div class="col-sm-3">
-                                    <asp:Button CssClass="btn btn-info" ID="showReportBtn" runat="server" Text="Show" />
+                                    <asp:Button CssClass="btn btn-info" ID="showReportBtn" runat="server" Text="Show" OnClick="showReportBtn_Click" />
                                 </div>
                             </div>
                             <hr />
@@ -55,7 +66,7 @@
                             <!--Total-->
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-1">
-                                    <asp:Button CssClass="btn btn-info pull-right" ID="generatePdfButton" runat="server" Text="PDF" />
+                                    <asp:Button CssClass="btn btn-info pull-right" ID="generatePdfButton" runat="server" Text="PDF" OnClick="generatePdfButton_Click" />
                                 </div>
                                 <label for="totalTextBox" class="col-sm-2 control-label">Total</label>
                                 <div class="col-sm-3">
