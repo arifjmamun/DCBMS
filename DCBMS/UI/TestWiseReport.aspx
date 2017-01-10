@@ -20,14 +20,14 @@
                             <div class="form-group">
                                 <label for="fromDateTextBox" class="col-sm-offset-3 col-sm-2 control-label">From Date</label>
                                 <div class="col-sm-3">
-                                    <asp:TextBox ID="fromDateTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                    <asp:TextBox ID="fromDateTextBox" runat="server" CssClass="form-control dateCalander" ClientIDMode="Static"></asp:TextBox>
                                 </div>
                             </div>
                             <!--To Date-->
                             <div class="form-group">
                                 <label for="toDateTextBox" class="col-sm-offset-3 col-sm-2 control-label">To Date</label>
                                 <div class="col-sm-3">
-                                    <asp:TextBox ID="toDateTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                    <asp:TextBox ID="toDateTextBox" runat="server" CssClass="form-control dateCalander" ClientIDMode="Static"></asp:TextBox>
                                 </div>
                                 <div class="col-sm-3">
                                     <asp:Button CssClass="btn btn-info" ID="showReportBtn" runat="server" Text="Show" />
@@ -36,10 +36,18 @@
                             <hr />
                             <asp:GridView ID="testWiseReportGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
                                 <Columns>
-                                    <asp:BoundField DataField="slColumn" HeaderText="SL" />
-                                    <asp:BoundField DataField="testNameColumn" HeaderText="TestSetup Name" />
-                                    <asp:BoundField DataField="totalTestSetupColumn" HeaderText="Total TestSetup" />
-                                    <asp:BoundField DataField="totalAmountColumn" HeaderText="Total Amount" />
+                                    <asp:TemplateField HeaderText="SL">
+                                        <ItemTemplate><%#Eval("Serial") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Test Name">
+                                        <ItemTemplate><%#Eval("TestName") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Total Test">
+                                        <ItemTemplate><%#Eval("TotalTest") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Total Amount">
+                                        <ItemTemplate><%#Eval("TotalAmount") %></ItemTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
                                 <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                             </asp:GridView>

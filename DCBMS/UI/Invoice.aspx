@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Invoice.aspx.cs" Inherits="DCBMS.UI.Invoice" %>
 
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -26,104 +28,24 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="wrapper">
-            
-            <asp:Panel ID="errorInfoPanel" runat="server" Visible="False">
-                <h1>Invalid Request.</h1>
-            </asp:Panel>
-
-            <asp:Panel ID="InvoicePanel" runat="server" Visible="False">
-                <!-- Main content -->
-                <section class="invoice">
-                    <!-- title row -->
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <h2 class="page-header">
-                                <i class="fa fa-globe"></i>Diagonostic Center
-                            </h2>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- info row -->
-                    <div class="row invoice-info">
-                        <div class="col-sm-4 invoice-col">
-                            To
-                    <address>
-                        <strong>Patient Name:
-                            <asp:Label ID="patientNameLabel" runat="server" Text=""></asp:Label></strong><br />
-                        Birth Date:
-                        <asp:Label ID="birthDateLabel" runat="server" Text=""></asp:Label><br />
-                        Phone Number:
-                        <asp:Label ID="phoneNumberLabel" runat="server" Text=""></asp:Label>
-                    </address>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-sm-4 invoice-col">
-                            <b>Bill Id: #<asp:Label ID="billIdLabel" runat="server" Text=""></asp:Label></b><br />
-                            <br />
-                            <b>Bill Date:</b>
-                            <asp:Label ID="billDateLabel" runat="server" Text=""></asp:Label>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-                    <!-- Table row -->
-                    <div class="row">
-                        <div class="col-xs-12 table-responsive">
-                            <asp:GridView ID="billGridView" runat="server" ClientIDMode="Static" GridLines="None" CssClass="table table-striped" AutoGenerateColumns="True" ShowHeaderWhenEmpty="True">
-                                <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
-                            </asp:GridView>
-                            <%--<table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Qty</th>
-                                        <th>Product</th>
-                                        <th>Serial #</th>
-                                        <th>Description</th>
-                                        <th>Subtotal</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Call of Duty</td>
-                                        <td>455-981-221</td>
-                                        <td>El snort testosterone trophy driving gloves handsome</td>
-                                        <td>$64.50</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Need for Speed IV</td>
-                                        <td>247-925-726</td>
-                                        <td>Wes Anderson umami biodiesel</td>
-                                        <td>$50.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Monsters DVD</td>
-                                        <td>735-845-642</td>
-                                        <td>Terry Richardson helvetica tousled street art master</td>
-                                        <td>$10.70</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Grown Ups Blue Ray</td>
-                                        <td>422-568-642</td>
-                                        <td>Tousled lomo letterpress</td>
-                                        <td>$25.99</td>
-                                    </tr>
-                                </tbody>
-                            </table>--%>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-                </section>
-                <!-- /.content -->
-            </asp:Panel>
-
-        </div>
-        <!-- ./wrapper -->
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <rsweb:ReportViewer ID="InvoiceReportViewer" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Visible="False">
+            <LocalReport ReportPath="InvoiceReport.rdlc">
+                <DataSources>
+                    <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DataSet1" />
+                </DataSources>
+            </LocalReport>
+        </rsweb:ReportViewer>
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DeleteMethod="Delete" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="DCBMS.DCBMSTableAdapters.test_infoTableAdapter" UpdateMethod="Update">
+            <DeleteParameters>
+                <asp:Parameter Name="Original_id" Type="Int32" />
+            </DeleteParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="test_name" Type="String" />
+                <asp:Parameter Name="test_fee" Type="Decimal" />
+                <asp:Parameter Name="Original_id" Type="Int32" />
+            </UpdateParameters>
+        </asp:ObjectDataSource>
     </form>
 </body>
 </html>

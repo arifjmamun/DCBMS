@@ -94,10 +94,10 @@
         </div>
         <!-- /.row -->
         <script type = "text/javascript">
-            function OpenPdfBill() {
-                var win = window.open("Invoice.aspx", "_blank");
-                win.focus();
-            }
+            //function OpenPdfBill() {
+            //    var win = window.open("Invoice.aspx", "_blank");
+            //    win.focus();
+            //}
         </script>
     </section>
     <!-- /.content -->

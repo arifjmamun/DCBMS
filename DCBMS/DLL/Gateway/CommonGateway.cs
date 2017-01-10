@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace DCBMS.DLL.Gateway
 {
@@ -30,6 +32,18 @@ namespace DCBMS.DLL.Gateway
             {
                 Connection.Close();
             }
+        }
+
+        public DataTable GetDataTestTable()
+        {
+            DataTable table = new DataTable();
+            Connection.Open();
+            string query = "SELECT id, test_name, test_fee FROM test_info WHERE bill_id='DCB-1'";
+            Command.CommandText = query;
+            Adapter = new SqlDataAdapter(Command);
+            Adapter.Fill(table);
+            Connection.Close();
+            return table;
         }
     }
 }

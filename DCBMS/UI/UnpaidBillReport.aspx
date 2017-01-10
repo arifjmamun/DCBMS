@@ -20,14 +20,14 @@
                             <div class="form-group">
                                 <label for="fromDateTextBox" class="col-sm-offset-3 col-sm-2 control-label">From Date</label>
                                 <div class="col-sm-3">
-                                    <asp:TextBox ID="fromDateTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                    <asp:TextBox ID="fromDateTextBox" runat="server" CssClass="form-control dateCalander" ClientIDMode="Static"></asp:TextBox>
                                 </div>
                             </div>
                             <!--To Date-->
                             <div class="form-group">
                                 <label for="toDateTextBox" class="col-sm-offset-3 col-sm-2 control-label">To Date</label>
                                 <div class="col-sm-3">
-                                    <asp:TextBox ID="toDateTextBox" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                    <asp:TextBox ID="toDateTextBox" runat="server" CssClass="form-control dateCalander" ClientIDMode="Static"></asp:TextBox>
                                 </div>
                                 <div class="col-sm-3">
                                     <asp:Button CssClass="btn btn-info" ID="showReportBtn" runat="server" Text="Show" />

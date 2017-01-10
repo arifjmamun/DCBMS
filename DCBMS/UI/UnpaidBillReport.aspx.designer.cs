@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Web.UI.WebControls;
-
 namespace DCBMS.UI {
     
     
@@ -21,7 +19,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected TextBox fromDateTextBox;
+        protected global::System.Web.UI.WebControls.TextBox fromDateTextBox;
         
         /// <summary>
         /// toDateTextBox control.
@@ -30,7 +28,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected TextBox toDateTextBox;
+        protected global::System.Web.UI.WebControls.TextBox toDateTextBox;
         
         /// <summary>
         /// showReportBtn control.
@@ -39,7 +37,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected Button showReportBtn;
+        protected global::System.Web.UI.WebControls.Button showReportBtn;
         
         /// <summary>
         /// unpaidBillReportGridView control.
@@ -48,7 +46,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected GridView unpaidBillReportGridView;
+        protected global::System.Web.UI.WebControls.GridView unpaidBillReportGridView;
         
         /// <summary>
         /// generatePdfButton control.
@@ -57,7 +55,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected Button generatePdfButton;
+        protected global::System.Web.UI.WebControls.Button generatePdfButton;
         
         /// <summary>
         /// totalTextBox control.
@@ -66,6 +64,6 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected TextBox totalTextBox;
+        protected global::System.Web.UI.WebControls.TextBox totalTextBox;
     }
 }

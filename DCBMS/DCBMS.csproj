@@ -38,11 +38,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="evohtmltopdf, Version=6.16.0.0, Culture=neutral, PublicKeyToken=e1fcbb86597de299, processorArchitecture=MSIL">
-      <HintPath>..\packages\EvoHtmlToPdf_x64.6.16\lib\net40\evohtmltopdf.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -197,6 +194,17 @@
     <Content Include="Template\bootstrap\fonts\ionicons.ttf" />
     <Content Include="Template\bootstrap\fonts\ionicons.woff" />
     <Content Include="packages.config" />
+    <Content Include="DCBMS.xsc">
+      <DependentUpon>DCBMS.xsd</DependentUpon>
+    </Content>
+    <None Include="DCBMS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DCBMS.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DCBMS.xss">
+      <DependentUpon>DCBMS.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1082,14 +1090,25 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DCBMS.cs">
+      <DependentUpon>DCBMS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DCBMS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DCBMS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DLL\DAO\BillInfo.cs" />
     <Compile Include="DLL\DAO\TestDao.cs" />
     <Compile Include="DLL\DAO\PatientInfo.cs" />
     <Compile Include="DLL\DAO\TestInfo.cs" />
     <Compile Include="DLL\DAO\TestTypeDao.cs" />
+    <Compile Include="DLL\DAO\TestReport.cs" />
     <Compile Include="DLL\Gateway\CommonGateway.cs" />
     <Compile Include="DLL\Gateway\DBconnection.cs" />
     <Compile Include="DLL\Gateway\PaymentGateway.cs" />
+    <Compile Include="DLL\Gateway\ReportGateway.cs" />
     <Compile Include="DLL\Gateway\TestGateway.cs" />
     <Compile Include="DLL\Gateway\TestRequestEntryGateway.cs" />
     <Compile Include="DLL\Gateway\TestTypeGateway.cs" />
@@ -1100,7 +1119,9 @@
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
+    <Compile Include="Middleware\CommonHelper.cs" />
     <Compile Include="Middleware\PaymentHelper.cs" />
+    <Compile Include="Middleware\ReportHelper.cs" />
     <Compile Include="Middleware\TestHelper.cs" />
     <Compile Include="Middleware\TestRequestEntryHelper.cs" />
     <Compile Include="Middleware\TestTypeHelper.cs" />
@@ -1166,7 +1187,9 @@
       <DependentUpon>UnpaidBillReport.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="InvoiceReport.rdlc" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
