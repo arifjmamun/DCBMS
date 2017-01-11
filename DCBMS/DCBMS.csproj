@@ -1073,7 +1073,7 @@
     <Content Include="Template\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Template\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Template\plugins\timepicker\bootstrap-timepicker.min.js" />
-    <Content Include="UI\Invoice.aspx" />
+    <Content Include="UI\Download.aspx" />
     <Content Include="UI\Payment.aspx" />
     <Content Include="UI\TestRequestEntry.aspx" />
     <Content Include="UI\TestSetup.aspx" />
@@ -1116,12 +1116,12 @@
       <DependentUpon>AjaxHandler.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Invoice.aspx.cs">
-      <DependentUpon>Invoice.aspx</DependentUpon>
+    <Compile Include="UI\Download.aspx.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI\Invoice.aspx.designer.cs">
-      <DependentUpon>Invoice.aspx</DependentUpon>
+    <Compile Include="UI\Download.aspx.designer.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>

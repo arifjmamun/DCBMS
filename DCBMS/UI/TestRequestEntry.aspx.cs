@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DCBMS.DLL.DAO;
@@ -11,6 +12,7 @@ using DCBMS.Middleware;
 using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
+using iTextSharp.text.html;
 using Color = System.Drawing.Color;
 
 namespace DCBMS.UI
@@ -24,13 +26,13 @@ namespace DCBMS.UI
         {
             if (!IsPostBack)
             {
+                ViewState.Clear();
                 LoadGridView();
                 LoadAllTestName();
                 feeTextBox.Attributes.Add("readonly", "readonly");
                 totalTextBox.Attributes.Add("readonly", "readonly");
             }
         }
-
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Verifies that the control is rendered */
@@ -110,7 +112,6 @@ namespace DCBMS.UI
                 PatientInfo newPatientInfo = new PatientInfo(patientName, mobileNumber, birthDate, newBillInfo);
                 testRequestEntryHelper.SavePatientBillInfo(newPatientInfo);
                 GeneratePdfFileBill(newPatientInfo);
-                ClearInformation();
             }
             else
             {
@@ -123,6 +124,7 @@ namespace DCBMS.UI
             }
             DisplayWarning();
         }
+
 
         //Show Gridview as a table
         private void LoadGridView()
@@ -203,9 +205,10 @@ namespace DCBMS.UI
             patientNameTextBox.Text = String.Empty;
             dobTextBox.Text = String.Empty;
             mobileNoTextBox.Text = String.Empty;
-            selectTestDropDown.SelectedIndex = 1;
+            selectTestDropDown.SelectedIndex = 0;
             feeTextBox.Text = String.Empty;
             totalTextBox.Text = String.Empty;
+            invoiceWrapper.Visible = false;
             //Response.Redirect("TestRequestEntry.aspx");
 
         }
@@ -230,26 +233,25 @@ namespace DCBMS.UI
 
         private void RenderPdfFile(string billId)
         {
-            int rowCount = testRequestEntryGridView.Rows.Count;
-            if (rowCount > 0)
+            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+
+            using (MemoryStream pdfBill = new MemoryStream())
             {
-                Response.ContentType = "application/pdf";
-                Response.AddHeader("content-disposition", "attachment;filename="+billId+".pdf");
-                Response.Cache.SetCacheability(HttpCacheability.NoCache);
                 StringWriter sw = new StringWriter();
                 HtmlTextWriter hw = new HtmlTextWriter(sw);
                 invoiceWrapper.RenderControl(hw);
                 StringReader sr = new StringReader(sw.ToString());
-                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+
                 HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
-                PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+                PdfWriter.GetInstance(pdfDoc, pdfBill);
                 pdfDoc.Open();
                 htmlparser.Parse(sr);
                 pdfDoc.Close();
-                Response.Write(pdfDoc);
-                Response.End();
+                Session["FileBytes"] = pdfBill.ToArray();
+                Session["BillId"] = billId;
             }
+            ClearInformation();
+            Response.Write("<script>window.open ('Download.aspx','_blank');</script>");
         }
-
     }
 }

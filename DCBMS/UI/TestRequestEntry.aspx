@@ -82,7 +82,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-9 col-sm-3">
-                                    <asp:Button CssClass="btn btn-info pull-right" ID="saveEntriesButton" runat="server" Text="Save" OnClick="saveEntriesButton_Click" />
+                                    <asp:Button CssClass="btn btn-info pull-right" ID="saveEntriesButton" runat="server" Text="Save" OnClick="saveEntriesButton_Click" OnClientClick ="document.forms[0].target = '_blank';" />
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
                     <!-- /.col -->
                     <div class="col-sm-4 invoice-col">
                         <b>Bill No. #</b><asp:Label runat="server" ID="billIdLabel"></asp:Label><br />
-                        <br>
+                        <br/>
                         <b>Total Amount:</b>
                         <asp:Label runat="server" ID="totalAmountLabel"></asp:Label><br />
                     </div>
@@ -148,6 +148,12 @@
             </section>
             <!-- /.content -->
         </asp:Panel>
+        <script type="text/javascript">
+            //function DownloadPdf() {
+            //    var win = window.open("Download.aspx", "_blank");
+            //    win.focus();
+            //}
+        </script>
     </section>
     <!-- /.content -->
 </asp:Content>
