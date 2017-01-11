@@ -16,8 +16,8 @@
                     <!-- /.box-header -->
                     <div class="form-horizontal">
                         <div class="box-body">
-                            
-                             <!--Alert goes here-->
+
+                            <!--Alert goes here-->
                             <div class="col-sm-offset-3 col-sm-6">
                                 <asp:Panel CssClass="alert alert-warning alert-dismissible" runat="server" ID="warningPanel" ClientIDMode="Static" Visible="False">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -82,7 +82,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-9 col-sm-3">
-                                    <asp:Button CssClass="btn btn-info pull-right" ID="saveEntriesButton" runat="server" Text="Save" OnClick="saveEntriesButton_Click" OnClientClick="OpenPdfBill()" />
+                                    <asp:Button CssClass="btn btn-info pull-right" ID="saveEntriesButton" runat="server" Text="Save" OnClick="saveEntriesButton_Click" />
                                 </div>
                             </div>
                         </div>
@@ -93,12 +93,61 @@
             <!--/.col (right) -->
         </div>
         <!-- /.row -->
-        <script type = "text/javascript">
-            //function OpenPdfBill() {
-            //    var win = window.open("Invoice.aspx", "_blank");
-            //    win.focus();
-            //}
-        </script>
+        <asp:Panel CssClass="row" runat="server" ID="invoiceWrapper" Visible="False">
+            <!-- Main content -->
+            <section class="invoice">
+                <h2 class="page-header" runat="server" align="center">Diagonostic Center Bill Management System </h2>
+                <br />
+                <small>Bill Date:
+                    <asp:Label runat="server" ID="billdateLabel"></asp:Label>
+                </small>
+                <!-- info row -->
+                <div class="row invoice-info">
+                    <!-- /.col -->
+                    <div class="col-sm-4 invoice-col">
+                        To,
+                        <br />
+                        <strong>Name:
+                            <asp:Label runat="server" ID="patientNameLabel"></asp:Label></strong><br />
+                        Birth Date:
+                        <asp:Label runat="server" ID="birthDateLabel"></asp:Label><br />
+                        Mobile Number:
+                        <asp:Label runat="server" ID="mobileNumberLabel"></asp:Label>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-4 invoice-col">
+                        <b>Bill No. #</b><asp:Label runat="server" ID="billIdLabel"></asp:Label><br />
+                        <br>
+                        <b>Total Amount:</b>
+                        <asp:Label runat="server" ID="totalAmountLabel"></asp:Label><br />
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+                <!-- Table row -->
+                <div class="row">
+                    <div class="col-xs-12 table-responsive">
+                        <asp:GridView ID="patientBillGridview" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="Both" AutoGenerateColumns="False">
+                            <Columns>
+                                <asp:TemplateField HeaderText="SL">
+                                    <ItemTemplate><%#Eval("TestSerial") %></ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Test Name">
+                                    <ItemTemplate><%#Eval("TestName") %></ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Fee">
+                                    <ItemTemplate><%#Eval("TestFee") %></ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+        </asp:Panel>
     </section>
     <!-- /.content -->
 </asp:Content>

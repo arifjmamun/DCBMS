@@ -2,10 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DCBMS.DLL.DAO;
 using DCBMS.Middleware;
+using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using Color = System.Drawing.Color;
 
 namespace DCBMS.UI
 {
@@ -23,6 +29,11 @@ namespace DCBMS.UI
                 feeTextBox.Attributes.Add("readonly", "readonly");
                 totalTextBox.Attributes.Add("readonly", "readonly");
             }
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            /* Verifies that the control is rendered */
         }
 
         protected void addRequestEntryBtn_Click(object sender, EventArgs e)
@@ -97,8 +108,8 @@ namespace DCBMS.UI
                 string mobileNumber = mobileNoTextBox.Text;
                 BillInfo newBillInfo = new BillInfo((List<TestInfo>)ViewState["TestList"]);
                 PatientInfo newPatientInfo = new PatientInfo(patientName, mobileNumber, birthDate, newBillInfo);
-                //GetPdfFileBill(newPatientInfo);
                 testRequestEntryHelper.SavePatientBillInfo(newPatientInfo);
+                GeneratePdfFileBill(newPatientInfo);
                 ClearInformation();
             }
             else
@@ -187,11 +198,58 @@ namespace DCBMS.UI
         private void ClearInformation()
         {
             ViewState.Clear();
-            Response.Redirect("TestRequestEntry.aspx");
+            testRequestEntryGridView.DataSource = new DataTable();
+            testRequestEntryGridView.DataBind();
+            patientNameTextBox.Text = String.Empty;
+            dobTextBox.Text = String.Empty;
+            mobileNoTextBox.Text = String.Empty;
+            selectTestDropDown.SelectedIndex = 1;
+            feeTextBox.Text = String.Empty;
+            totalTextBox.Text = String.Empty;
+            //Response.Redirect("TestRequestEntry.aspx");
+
         }
-        private void GetPdfFileBill(PatientInfo newPatientInfo)
+        private void GeneratePdfFileBill(PatientInfo newPatientInfo)
         {
-            // Have to implement with database
+            invoiceWrapper.Visible = true;
+            patientBillGridview.DataSource = newPatientInfo.BillInfo.TestList;
+            patientBillGridview.HeaderStyle.BackColor = Color.Silver;
+            patientBillGridview.HeaderStyle.Font.Bold = true;
+            patientBillGridview.DataBind();
+
+            billIdLabel.Text = newPatientInfo.BillInfo.BillId;
+            billdateLabel.Text = newPatientInfo.BillInfo.BillDate;
+            patientNameLabel.Text = newPatientInfo.PatientName;
+            birthDateLabel.Text = newPatientInfo.BirthDate;
+            mobileNumberLabel.Text = newPatientInfo.MobileNumber;
+            mobileNumberLabel.Text = newPatientInfo.MobileNumber;
+            totalAmountLabel.Text = newPatientInfo.BillInfo.TotalAmount.ToString("F");
+            totalAmountLabel.Text = newPatientInfo.BillInfo.TotalAmount.ToString("F");
+            RenderPdfFile(newPatientInfo.BillInfo.BillId);
         }
+
+        private void RenderPdfFile(string billId)
+        {
+            int rowCount = testRequestEntryGridView.Rows.Count;
+            if (rowCount > 0)
+            {
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-disposition", "attachment;filename="+billId+".pdf");
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                StringWriter sw = new StringWriter();
+                HtmlTextWriter hw = new HtmlTextWriter(sw);
+                invoiceWrapper.RenderControl(hw);
+                StringReader sr = new StringReader(sw.ToString());
+                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+                PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+                pdfDoc.Open();
+                htmlparser.Parse(sr);
+                pdfDoc.Close();
+                Response.Write(pdfDoc);
+                Response.End();
+            }
+        }
+
     }
 }
