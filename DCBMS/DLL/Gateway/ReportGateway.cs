@@ -83,5 +83,44 @@ namespace DCBMS.DLL.Gateway
                 Connection.Close();
             }
         }
+
+        public List<UnpaidBill> GetUnpaidBillReport(string fromDate, string toDate)
+        {
+            try
+            {
+                List<UnpaidBill> unpaidBills = new List<UnpaidBill>();
+                const string sqlQuery = @"SELECT b.bill_id, p.patient_mobile, p.patient_name, b.bill_due 
+                                        FROM patient_info p 
+                                        JOIN bill_info b 
+                                        ON b.patient_mobile = p.patient_mobile AND b.bill_due>0 AND b.bill_date BETWEEN @FromDate AND @ToDate";
+
+                Connection.Open();
+                Command.CommandText = sqlQuery;
+                Command.Parameters.Clear();
+                Command.Parameters.AddWithValue("@FromDate", fromDate);
+                Command.Parameters.AddWithValue("@ToDate", toDate);
+                Reader = Command.ExecuteReader();
+                if (Reader.HasRows)
+                {
+                    int serial = 0;
+                    while (Reader.Read())
+                    {
+                        UnpaidBill unpaidBill = new UnpaidBill();
+                        unpaidBill.Serial = ++serial;
+                        unpaidBill.BillId = Reader["bill_id"].ToString();
+                        unpaidBill.ContactNumber = Reader["patient_mobile"].ToString();
+                        unpaidBill.PatientName = Reader["patient_name"].ToString();
+                        unpaidBill.BillAmount = (decimal)Reader["bill_due"];
+                        unpaidBills.Add(unpaidBill);
+                    }
+                    Reader.Close();
+                }
+                return unpaidBills;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
     }
 }

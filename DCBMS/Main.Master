@@ -138,9 +138,9 @@
                             <li><a href="UnpaidBillReport.aspx"><i class="fa fa-file-pdf-o"></i>Unpaid Bill Report</a></li>
                         </ul>
                     </li>
-                    <!-- Payment -->
+                    <!-- Logout -->
                     <li>
-                        <a href="Payment.aspx">
+                        <a href="#">
                             <i class="fa fa-sign-out"></i><span>Logout</span>
                         </a>
                     </li>

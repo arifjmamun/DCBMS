@@ -16,7 +16,7 @@
                     <!-- /.box-header -->
                     <div class="form-horizontal">
                         <div class="box-body">
-                            
+
                             <!--Alert goes here-->
                             <div class="col-sm-offset-3 col-sm-6">
                                 <asp:Panel CssClass="alert alert-warning alert-dismissible" runat="server" ID="warningPanel" ClientIDMode="Static" Visible="False">
@@ -47,6 +47,10 @@
                             <hr />
                             <asp:Panel runat="server" ID="gridViewWrapper">
                                 <h1 runat="server" visible="False" id="reportHeading" align="center">Type Wise Report</h1>
+                                <h4 runat="server" visible="False" id="dateRangeLabel" align="center">
+                                    From: <asp:Label runat="server" ID="fromDateLabel"></asp:Label> To:
+                                    <asp:Label runat="server" ID="toDateLabel"></asp:Label>
+                                </h4>
                                 <asp:GridView ID="typeWiseReportGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
                                     <Columns>
                                         <asp:TemplateField HeaderText="SL">

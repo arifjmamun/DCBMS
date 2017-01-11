@@ -13,6 +13,7 @@ using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 using Microsoft.Reporting.WebForms;
+using Color = System.Drawing.Color;
 
 namespace DCBMS.UI
 {
@@ -59,8 +60,7 @@ namespace DCBMS.UI
             int rowCount = typeWiseReportGridView.Rows.Count;
             if (rowCount > 0)
             {
-                reportHeading.Visible = true;
-                typeWiseReportGridView.GridLines = GridLines.Both;
+                SetGridviewStyles();
                 Response.ContentType = "application/pdf";
                 Response.AddHeader("content-disposition",
                  "attachment;filename=TypeWiseReport.pdf");
@@ -77,10 +77,10 @@ namespace DCBMS.UI
                 pdfDoc.Close();
                 Response.Write(pdfDoc);
                 Response.End();
-                reportHeading.Visible = false;
-                typeWiseReportGridView.GridLines = GridLines.None;
+                ResetGridviewStyles();
             }
         }
+
         private void InitiateGridView()
         {
             List<Report> reports = new List<Report>();
@@ -99,6 +99,8 @@ namespace DCBMS.UI
                 totalAmount = totalAmount + testReport.TotalAmount;
             }
             totalTextBox.Text = totalAmount.ToString("F");
+            fromDateLabel.Text = fromDate;
+            toDateLabel.Text = toDate;
         }
         private void DisplayWarning()
         {
@@ -126,6 +128,24 @@ namespace DCBMS.UI
             //toDateTextBox.Text = String.Empty;
             InitiateGridView();
             totalTextBox.Text = String.Empty;
+        }
+
+        private void SetGridviewStyles()
+        {
+            reportHeading.Visible = true;
+            dateRangeLabel.Visible = true;
+            typeWiseReportGridView.GridLines = GridLines.Both;
+            typeWiseReportGridView.HeaderStyle.BackColor = Color.Silver;
+            typeWiseReportGridView.HeaderStyle.Font.Bold = true;
+        }
+
+        private void ResetGridviewStyles()
+        {
+            reportHeading.Visible = false;
+            dateRangeLabel.Visible = false;
+            typeWiseReportGridView.GridLines = GridLines.None;
+            typeWiseReportGridView.HeaderStyle.BackColor = Color.Empty;
+            typeWiseReportGridView.HeaderStyle.Font.Bold = false;
         }
     }
 }

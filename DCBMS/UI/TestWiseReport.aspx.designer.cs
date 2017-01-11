@@ -85,6 +85,33 @@ namespace DCBMS.UI {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl reportHeading;
         
         /// <summary>
+        /// dateRangeLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dateRangeLabel;
+        
+        /// <summary>
+        /// fromDateLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label fromDateLabel;
+        
+        /// <summary>
+        /// toDateLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label toDateLabel;
+        
+        /// <summary>
         /// testWiseReportGridView control.
         /// </summary>
         /// <remarks>

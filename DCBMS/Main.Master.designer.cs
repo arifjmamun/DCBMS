@@ -7,9 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-
 namespace DCBMS {
     
     
@@ -22,7 +19,7 @@ namespace DCBMS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
         /// form1 control.
@@ -31,7 +28,7 @@ namespace DCBMS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// mainContent control.
@@ -40,6 +37,6 @@ namespace DCBMS {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected ContentPlaceHolder mainContent;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder mainContent;
     }
 }

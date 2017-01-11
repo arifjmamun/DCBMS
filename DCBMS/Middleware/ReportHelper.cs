@@ -20,5 +20,10 @@ namespace DCBMS.Middleware
         {
             return _reportGateway.GetTypeWiseReport(fromDate, toDate);
         }
+
+        public List<UnpaidBill> GetUnpaidBillReport(string fromDate, string toDate)
+        {
+            return _reportGateway.GetUnpaidBillReport(fromDate, toDate);
+        }
     }
 }

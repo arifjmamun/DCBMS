@@ -15,6 +15,7 @@ using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 using iTextSharp.text.html;
 using System.Text;
+using Color = System.Drawing.Color;
 
 namespace DCBMS.UI
 {
@@ -61,8 +62,7 @@ namespace DCBMS.UI
             int rowCount = testWiseReportGridView.Rows.Count;
             if (rowCount > 0)
             {
-                reportHeading.Visible = true;
-                testWiseReportGridView.GridLines = GridLines.Both;
+                SetGridviewStyles();
                 Response.ContentType = "application/pdf";
                 Response.AddHeader("content-disposition",
                  "attachment;filename=TestWiseReport.pdf");
@@ -79,8 +79,7 @@ namespace DCBMS.UI
                 pdfDoc.Close();
                 Response.Write(pdfDoc);
                 Response.End();
-                reportHeading.Visible = false;
-                testWiseReportGridView.GridLines = GridLines.None;
+                ResetGridviewStyles();
             }
         }
 
@@ -102,6 +101,8 @@ namespace DCBMS.UI
                 totalAmount = totalAmount + testReport.TotalAmount;
             }
             totalTextBox.Text = totalAmount.ToString("F");
+            fromDateLabel.Text = fromDate;
+            toDateLabel.Text = toDate;
         }
 
         private void DisplayWarning()
@@ -130,6 +131,24 @@ namespace DCBMS.UI
             //toDateTextBox.Text = String.Empty;
             InitiateGridView();
             totalTextBox.Text = String.Empty;
+        }
+
+        private void SetGridviewStyles()
+        {
+            reportHeading.Visible = true;
+            dateRangeLabel.Visible = true;
+            testWiseReportGridView.GridLines = GridLines.Both;
+            testWiseReportGridView.HeaderStyle.BackColor = Color.Silver;
+            testWiseReportGridView.HeaderStyle.Font.Bold = true;
+        }
+
+        private void ResetGridviewStyles()
+        {
+            reportHeading.Visible = false;
+            dateRangeLabel.Visible = false;
+            testWiseReportGridView.GridLines = GridLines.None;
+            testWiseReportGridView.HeaderStyle.BackColor = Color.Empty;
+            testWiseReportGridView.HeaderStyle.Font.Bold = false;
         }
 
     }

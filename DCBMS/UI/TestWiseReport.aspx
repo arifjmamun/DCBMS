@@ -46,7 +46,10 @@
                             </div>
                             <hr />
                             <asp:Panel runat="server" ID="gridViewWrapper">
-                                <h1 runat="server" Visible="False" id="reportHeading" align="center">Test Wise Report</h1>
+                                <h1 runat="server" visible="False" id="reportHeading" align="center">Test Wise Report</h1>
+                                <h4 runat="server" visible="False" id="dateRangeLabel" align="center">
+                                    From: <asp:Label runat="server" ID="fromDateLabel"></asp:Label> To: <asp:Label runat="server" ID="toDateLabel"></asp:Label>
+                                </h4>
                                 <asp:GridView ID="testWiseReportGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" AllowPaging="True">
                                     <Columns>
                                         <asp:TemplateField HeaderText="SL">

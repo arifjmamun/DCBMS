@@ -38,8 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp">
-      <HintPath>C:\Users\ARIF\Desktop\itextsharp.dll</HintPath>
+    <Reference Include="itextsharp, Version=4.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
@@ -62,6 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Lib\itextsharp.dll" />
     <Content Include="Main.Master" />
     <Content Include="Scripts\Custom.js" />
     <Content Include="Scripts\TestRequestEntry.js" />
@@ -1088,6 +1090,7 @@
     <Compile Include="DLL\DAO\TestInfo.cs" />
     <Compile Include="DLL\DAO\TestTypeDao.cs" />
     <Compile Include="DLL\DAO\TestReport.cs" />
+    <Compile Include="DLL\DAO\UnpaidBill.cs" />
     <Compile Include="DLL\Gateway\CommonGateway.cs" />
     <Compile Include="DLL\Gateway\DBconnection.cs" />
     <Compile Include="DLL\Gateway\PaymentGateway.cs" />
