@@ -251,7 +251,7 @@ namespace DCBMS.UI
                 Session["BillId"] = billId;
             }
             ClearInformation();
-            Response.Write("<script>window.open ('Download.aspx','_blank');</script>");
+            Response.Write("<script>window.open ('Download.aspx');</script>");
         }
     }
 }

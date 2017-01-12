@@ -4,3 +4,4 @@ H:\BASIS\Personal\Project- Diagonostic Center Bill Management\DCBMS\DCBMS\bin\DC
 H:\BASIS\Personal\Project- Diagonostic Center Bill Management\DCBMS\DCBMS\bin\itextsharp.dll
 H:\BASIS\Personal\Project- Diagonostic Center Bill Management\DCBMS\DCBMS\obj\Debug\DCBMS.dll
 H:\BASIS\Personal\Project- Diagonostic Center Bill Management\DCBMS\DCBMS\obj\Debug\DCBMS.pdb
+H:\BASIS\Personal\Project- Diagonostic Center Bill Management\DCBMS\DCBMS\obj\Debug\DCBMS.csprojResolveAssemblyReference.cache
