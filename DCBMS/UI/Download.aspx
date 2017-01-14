@@ -16,7 +16,7 @@
         <asp:Panel CssClass="row" runat="server" ID="invoiceWrapper" Visible="False">
             <!-- Main content -->
             <section class="invoice">
-                <h2 class="page-header" runat="server" align="center">Diagonostic Center Bill Management System </h2>
+                <h2 align="center">Diagonostic Center Bill Management System </h2>
                 <br />
                 <small>Bill Date:
                     <asp:Label runat="server" ID="billdateLabel"></asp:Label>
