@@ -69,7 +69,18 @@
                             </div>
 
                             <hr />
-                            <asp:GridView ID="testRequestEntryGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="True" ShowHeaderWhenEmpty="True">
+                            <asp:GridView ID="testRequestEntryGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="SL">
+                                        <ItemTemplate><%#Eval("TestSerial") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Test Name">
+                                        <ItemTemplate><%#Eval("TestName") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Fee">
+                                        <ItemTemplate><%#Eval("TestFee") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
                                 <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                             </asp:GridView>
                             <hr />
@@ -82,7 +93,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-9 col-sm-3">
-                                    <asp:Button CssClass="btn btn-info pull-right" ID="saveEntriesButton" runat="server" Text="Save" OnClick="saveEntriesButton_Click" OnClientClick ="document.forms[0].target = '_blank';" />
+                                    <asp:Button CssClass="btn btn-info pull-right" ID="saveEntriesButton" runat="server" Text="Save" OnClick="saveEntriesButton_Click"/>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +128,7 @@
                     <!-- /.col -->
                     <div class="col-sm-4 invoice-col">
                         <b>Bill No. #</b><asp:Label runat="server" ID="billIdLabel"></asp:Label><br />
-                        <br/>
+                        <br />
                         <b>Total Amount:</b>
                         <asp:Label runat="server" ID="totalAmountLabel"></asp:Label><br />
                     </div>
@@ -148,12 +159,6 @@
             </section>
             <!-- /.content -->
         </asp:Panel>
-        <script type="text/javascript">
-            //function DownloadPdf() {
-            //    var win = window.open("Download.aspx", "_blank");
-            //    win.focus();
-            //}
-        </script>
     </section>
     <!-- /.content -->
 </asp:Content>

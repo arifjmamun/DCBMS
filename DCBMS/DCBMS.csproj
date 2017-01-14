@@ -198,7 +198,6 @@
     <Content Include="Template\bootstrap\fonts\ionicons.eot" />
     <Content Include="Template\bootstrap\fonts\ionicons.ttf" />
     <Content Include="Template\bootstrap\fonts\ionicons.woff" />
-    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
