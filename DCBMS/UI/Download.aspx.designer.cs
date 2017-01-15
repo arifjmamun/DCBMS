@@ -28,16 +28,7 @@ namespace DCBMS.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel invoiceWrapper;
-        
-        /// <summary>
-        /// billdateLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label billdateLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl invoiceWrapper;
         
         /// <summary>
         /// patientNameLabel control.
@@ -65,6 +56,15 @@ namespace DCBMS.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label mobileNumberLabel;
+        
+        /// <summary>
+        /// billdateLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label billdateLabel;
         
         /// <summary>
         /// billIdLabel control.

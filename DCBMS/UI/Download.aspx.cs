@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -9,6 +10,11 @@ using DCBMS.DLL.DAO;
 using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
+using iTextSharp.tool.xml.parser;
+using iTextSharp.tool.xml.pipeline.css;
+using iTextSharp.tool.xml.pipeline.end;
+using iTextSharp.tool.xml.pipeline.html;
 using Color = System.Drawing.Color;
 
 namespace DCBMS.UI
@@ -18,12 +24,14 @@ namespace DCBMS.UI
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadData();
+            //LoadEmptyData();
         }
+
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Verifies that the control is rendered */
         }
-        
+
         private void LoadData()
         {
             if (Session["PatientInfo"] != null)
@@ -41,43 +49,61 @@ namespace DCBMS.UI
                 birthDateLabel.Text = patientInfo.BirthDate;
                 mobileNumberLabel.Text = patientInfo.MobileNumber;
                 totalAmountLabel.Text = patientInfo.BillInfo.TotalAmount.ToString("F");
-                DownloadPdfFile(RenderPdfFile(), patientInfo.BillInfo.BillId);
+                DownloadPdf(GenerateMemoryStream(), patientInfo.BillInfo.BillId);
             }
         }
 
-        private byte[] RenderPdfFile()
+        private byte[] GenerateMemoryStream()
         {
-            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+            var stringWriter = new StringWriter();
+            var htmlTextWriter = new HtmlTextWriter(stringWriter);
+            invoiceWrapper.RenderControl(htmlTextWriter);
+            var innerString = stringWriter.GetStringBuilder().ToString(); 
 
-            using (MemoryStream pdfBill = new MemoryStream())
-            {
-                StringWriter sw = new StringWriter();
-                HtmlTextWriter hw = new HtmlTextWriter(sw);
-                invoiceWrapper.RenderControl(hw);
-                StringReader sr = new StringReader(sw.ToString());
+            var output = new MemoryStream();
+            var input = new MemoryStream(Encoding.UTF8.GetBytes(innerString));
+            var document = new Document();
+            var writer = PdfWriter.GetInstance(document, output);
+            writer.CloseStream = false;
 
-                HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
-                PdfWriter.GetInstance(pdfDoc, pdfBill);
-                pdfDoc.Open();
-                htmlparser.Parse(sr);
-                pdfDoc.Close();
-                return pdfBill.ToArray();
-            }
+            document.Open();
+            var htmlContext = new HtmlPipelineContext(null);
+            htmlContext.SetTagFactory(iTextSharp.tool.xml.html.Tags.GetHtmlTagProcessorFactory());
+            ICSSResolver cssResolver = XMLWorkerHelper.GetInstance().GetDefaultCssResolver(false);
+            cssResolver.AddCssFile(System.Web.HttpContext.Current.Server.MapPath("~/Template/bootstrap/css/bootstrap.min.css"), true);
+            cssResolver.AddCssFile(System.Web.HttpContext.Current.Server.MapPath("~/Template/Bootstrap/css/custom.css"), true);
+
+            var pipeline = new CssResolverPipeline(cssResolver, new HtmlPipeline(htmlContext, new PdfWriterPipeline(document, writer)));
+            var worker = new XMLWorker(pipeline, true);
+            var parser = new XMLParser(worker);
+            parser.Parse(input);
+            document.Close();
+            return output.ToArray();
         }
 
-        private void DownloadPdfFile(byte[] fileBytes, string billId)
+        private void DownloadPdf(byte[] fileBytes, string billId)
         {
-            Session.Clear();
-            invoiceWrapper.Visible = false;
             Response.ClearContent();
             Response.ClearHeaders();
             Response.ContentType = "application/pdf";
-            Response.AddHeader("Content-Disposition", "attachment; filename=" + billId + DateTime.Now + ".pdf");
+            Response.AddHeader("Content-Disposition", "attachment; filename=" + billId +"-"+ DateTime.Now + ".pdf");
 
             Response.BinaryWrite(fileBytes);
             Response.End();
             Response.Flush();
             Response.Clear();
         }
+
+        //private void LoadEmptyData()
+        //{
+        //    List<TestInfo> testList = new List<TestInfo>();
+        //    TestInfo testInfo = new TestInfo();
+        //    testInfo.TestFee = 500;
+        //    testInfo.TestSerial = 1;
+        //    testInfo.TestName = "Blood";
+        //    testList.Add(testInfo);
+        //    patientBillGridview.DataSource = testList;
+        //    patientBillGridview.DataBind();
+        //}
     }
 }

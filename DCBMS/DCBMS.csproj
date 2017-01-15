@@ -42,6 +42,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.5.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra, Version=5.5.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\itextsharp.xtra.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
@@ -64,12 +76,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lib\itextsharp.dll" />
+    <Content Include="Lib\itextsharp.pdfa.dll" />
+    <Content Include="Lib\iTextSharp.xml" />
+    <Content Include="Lib\itextsharp.xmlworker.dll" />
+    <Content Include="Lib\itextsharp.xtra.dll" />
     <Content Include="Main.Master" />
     <Content Include="Scripts\Custom.js" />
     <Content Include="Scripts\TestRequestEntry.js" />
     <Content Include="Services\AjaxHandler.asmx" />
     <Content Include="Template\bootstrap\css\bootstrap.css.map" />
     <Content Include="Template\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Template\bootstrap\css\Custom.css" />
     <Content Include="Template\bootstrap\css\font-awesome.min.css" />
     <Content Include="Template\bootstrap\css\ionicons.min.css" />
     <Content Include="Template\bootstrap\fonts\glyphicons-halflings-regular.eot" />
