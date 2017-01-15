@@ -75,6 +75,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Banner.jpg" />
     <Content Include="Lib\itextsharp.dll" />
     <Content Include="Lib\itextsharp.pdfa.dll" />
     <Content Include="Lib\iTextSharp.xml" />

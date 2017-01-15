@@ -46,15 +46,21 @@
                             </div>
                             <hr />
                             <asp:Panel runat="server" ID="gridViewWrapper">
-                                <h1 runat="server" visible="False" id="reportHeading" align="center">Type Wise Report</h1>
+                                <h1 runat="server" visible="False" id="reportHeading" align="center">
+                                    <small>Diagonostic Center Bill Management System</small><br />
+                                    <br />
+                                    Type Wise Report
+                                </h1>
                                 <h4 runat="server" visible="False" id="dateRangeLabel" align="center">
                                     From: <asp:Label runat="server" ID="fromDateLabel"></asp:Label> To:
                                     <asp:Label runat="server" ID="toDateLabel"></asp:Label>
                                 </h4>
+                                <br />
                                 <asp:GridView ID="typeWiseReportGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
                                     <Columns>
                                         <asp:TemplateField HeaderText="SL">
                                             <ItemTemplate><%#Eval("Serial") %></ItemTemplate>
+                                            <HeaderStyle Width="30px" />
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Test Type Name">
                                             <ItemTemplate><%#Eval("TestType") %></ItemTemplate>
