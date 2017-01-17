@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="DCBMS.UI.Payment" %>
+﻿<%@ Page Title="Payment | DCBMS" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="DCBMS.UI.Payment" %>
 
 <asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

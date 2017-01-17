@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>DCBMS Bill</title>
+    <title>Bill | DCBMS</title>
     <link href="../Template/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../Template/bootstrap/css/Custom.css" rel="stylesheet" />
 </head>

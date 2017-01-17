@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestWiseReport.aspx.cs" Inherits="DCBMS.UI.TestWiseReport" EnableEventValidation="false" %>
+﻿<%@ Page Title="Test Wise Report | DCBMS" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestWiseReport.aspx.cs" Inherits="DCBMS.UI.TestWiseReport" EnableEventValidation="false" %>
 
 <asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

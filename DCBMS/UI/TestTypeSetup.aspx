@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestTypeSetup.aspx.cs" Inherits="DCBMS.UI.TestTypeSetup" %>
+﻿<%@ Page Title="Test Type Setup | DCBMS" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TestTypeSetup.aspx.cs" Inherits="DCBMS.UI.TestTypeSetup" %>
 
 <asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
