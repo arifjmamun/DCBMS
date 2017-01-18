@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using System.Web.UI;
-using DCBMS.DLL.DAO;
 using DCBMS.Middleware;
+using DCBMS.Model;
 
 namespace DCBMS.UI
 {

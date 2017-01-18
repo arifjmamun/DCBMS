@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.HtmlControls;
-using DCBMS.DLL.DAO;
 using DCBMS.Middleware;
 using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 using iTextSharp.text.html;
 using System.Text;
+using DCBMS.Model;
 using Color = System.Drawing.Color;
 
 namespace DCBMS.UI

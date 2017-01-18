@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DCBMS.DLL.DAO;
 using DCBMS.Middleware;
+using DCBMS.Model;
 using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
-using Microsoft.Reporting.WebForms;
 using Color = System.Drawing.Color;
 
 namespace DCBMS.UI
@@ -102,7 +100,7 @@ namespace DCBMS.UI
             fromDateLabel.Text = fromDate;
             toDateLabel.Text = toDate;
         }
-        
+
         private void DisplayWarning()
         {
             if (ViewState["HasError"] != null)

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using DCBMS.DLL.DAO;
+using DCBMS.Model;
 using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;

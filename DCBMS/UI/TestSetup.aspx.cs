@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Web.UI;
-using DCBMS.DLL.DAO;
-using DCBMS.Middleware;
+using DCBMS.BLL;
+using DCBMS.Model;
 
 namespace DCBMS.UI
 {
@@ -66,7 +66,7 @@ namespace DCBMS.UI
                 string testName = testNameTextBox.Text;
                 decimal testFee = Convert.ToDecimal(feeTextBox.Text);
                 string testTypeName = testTypeDropDown.SelectedValue;
-                TestDao newTest = new TestDao(testName, testFee, testTypeName);
+                Test newTest = new Test(testName, testFee, testTypeName);
                 if (!testHelper.CheckTestIsExist(newTest))
                 {
                     testHelper.AddNewTest(newTest);

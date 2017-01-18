@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Web.Script.Services;
 using System.Web.Services;
-using DCBMS.Middleware;
+using DCBMS.BLL;
 
 namespace DCBMS.Services
 {

@@ -1101,20 +1101,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DLL\DAO\BillInfo.cs" />
-    <Compile Include="DLL\DAO\TestDao.cs" />
-    <Compile Include="DLL\DAO\PatientInfo.cs" />
-    <Compile Include="DLL\DAO\TestInfo.cs" />
-    <Compile Include="DLL\DAO\TestTypeDao.cs" />
-    <Compile Include="DLL\DAO\TestReport.cs" />
-    <Compile Include="DLL\DAO\UnpaidBill.cs" />
-    <Compile Include="DLL\Gateway\CommonGateway.cs" />
-    <Compile Include="DLL\Gateway\DBconnection.cs" />
-    <Compile Include="DLL\Gateway\PaymentGateway.cs" />
-    <Compile Include="DLL\Gateway\ReportGateway.cs" />
-    <Compile Include="DLL\Gateway\TestGateway.cs" />
-    <Compile Include="DLL\Gateway\TestRequestEntryGateway.cs" />
-    <Compile Include="DLL\Gateway\TestTypeGateway.cs" />
+    <Compile Include="Model\BillInfo.cs" />
+    <Compile Include="Model\Test.cs" />
+    <Compile Include="Model\PatientInfo.cs" />
+    <Compile Include="Model\TestInfo.cs" />
+    <Compile Include="Model\TestType.cs" />
+    <Compile Include="Model\TestReport.cs" />
+    <Compile Include="Model\UnpaidBill.cs" />
+    <Compile Include="DAL\CommonGateway.cs" />
+    <Compile Include="DAL\DBconnection.cs" />
+    <Compile Include="DAL\PaymentGateway.cs" />
+    <Compile Include="DAL\ReportGateway.cs" />
+    <Compile Include="DAL\TestGateway.cs" />
+    <Compile Include="DAL\TestRequestEntryGateway.cs" />
+    <Compile Include="DAL\TestTypeGateway.cs" />
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1122,12 +1122,12 @@
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
-    <Compile Include="Middleware\CommonHelper.cs" />
-    <Compile Include="Middleware\PaymentHelper.cs" />
-    <Compile Include="Middleware\ReportHelper.cs" />
-    <Compile Include="Middleware\TestHelper.cs" />
-    <Compile Include="Middleware\TestRequestEntryHelper.cs" />
-    <Compile Include="Middleware\TestTypeHelper.cs" />
+    <Compile Include="BLL\CommonHelper.cs" />
+    <Compile Include="BLL\PaymentHelper.cs" />
+    <Compile Include="BLL\ReportHelper.cs" />
+    <Compile Include="BLL\TestHelper.cs" />
+    <Compile Include="BLL\TestRequestEntryHelper.cs" />
+    <Compile Include="BLL\TestTypeHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AjaxHandler.asmx.cs">
       <DependentUpon>AjaxHandler.asmx</DependentUpon>

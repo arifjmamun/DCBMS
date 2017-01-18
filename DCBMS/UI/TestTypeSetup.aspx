@@ -40,7 +40,15 @@
                             </div>
 
                             <hr />
-                            <asp:GridView ID="testTypeGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="True" ShowHeaderWhenEmpty="True">
+                            <asp:GridView ID="testTypeGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Sl">
+                                        <ItemTemplate><%#Eval("Serial") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                     <asp:TemplateField HeaderText="Type Name">
+                                        <ItemTemplate><%#Eval("TypeName") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
                                 <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                             </asp:GridView>
                         </div>

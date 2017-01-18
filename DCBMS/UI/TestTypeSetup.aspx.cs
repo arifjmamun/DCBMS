@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.UI;
-using DCBMS.DLL.DAO;
-using DCBMS.Middleware;
+using DCBMS.BLL;
+using DCBMS.Model;
 
 namespace DCBMS.UI
 {
@@ -34,7 +34,7 @@ namespace DCBMS.UI
             else
             {
                 string testType = typeNameTextBox.Text;
-                TestTypeDao newTestType = new TestTypeDao(testType);
+                TestType newTestType = new TestType(testType);
                 if (!testTypeHelper.CheckTestTypeIsExist(newTestType))
                 {
                     testTypeHelper.AddNewTestTye(newTestType);
