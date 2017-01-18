@@ -5,18 +5,13 @@ using DCBMS.Model;
 
 namespace DCBMS.BLL
 {
-    public class TestTypeHelper
+    public class TestTypeManager
     {
-        TestTypeGateway newGateway = new TestTypeGateway();
+        TestTypeGateway _testTypeGateway = new TestTypeGateway();
         CommonGateway commonGateway = new CommonGateway();
         public void AddNewTestTye(TestType newTestType)
         {
-            newGateway.AddNewTestType(newTestType);
-        }
-
-        public DataTable GetAllTestTypeAsTable()
-        {
-            return newGateway.GetAllTestTypeAsTable();
+            _testTypeGateway.AddNewTestType(newTestType);
         }
 
         public List<string> GetAllTestType()
@@ -26,7 +21,12 @@ namespace DCBMS.BLL
 
         public bool CheckTestTypeIsExist(TestType newTestType)
         {
-            return newGateway.CheckTestTypeIsExist(newTestType);
+            return _testTypeGateway.CheckTestTypeIsExist(newTestType);
+        }
+
+        public List<TestType> GetAllTestTypeInGrid()
+        {
+            return _testTypeGateway.GetAllTestTypeInGrid();
         }
     }
 }

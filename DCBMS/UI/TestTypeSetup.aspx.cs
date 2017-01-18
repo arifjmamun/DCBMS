@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Data;
 using System.Web.UI;
 using DCBMS.BLL;
 using DCBMS.Model;
@@ -10,11 +8,11 @@ namespace DCBMS.UI
 {
     public partial class TestTypeSetup : Page
     {
-        TestTypeHelper testTypeHelper = new TestTypeHelper();
+        TestTypeManager _testTypeManager = new TestTypeManager();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
+            if (!IsPostBack)
             {
                 LoadGridView();
             }
@@ -35,9 +33,9 @@ namespace DCBMS.UI
             {
                 string testType = typeNameTextBox.Text;
                 TestType newTestType = new TestType(testType);
-                if (!testTypeHelper.CheckTestTypeIsExist(newTestType))
+                if (!_testTypeManager.CheckTestTypeIsExist(newTestType))
                 {
-                    testTypeHelper.AddNewTestTye(newTestType);
+                    _testTypeManager.AddNewTestTye(newTestType);
                     LoadGridView();
                 }
                 else
@@ -56,30 +54,7 @@ namespace DCBMS.UI
         //Show Gridview as a table
         private void LoadGridView()
         {
-            DataTable table = new DataTable();
-            table.Columns.AddRange(new DataColumn[]
-            {
-                new DataColumn("SL", typeof(string)), 
-                new DataColumn("Type Name", typeof(string))
-            });
-            List<string> listOfTestTypes = testTypeHelper.GetAllTestType();
-            for (int i = 0; i < listOfTestTypes.Count; i++)
-            {
-                DataRow newRow = table.NewRow();
-                for (int j = 0; j < 2; j++)
-                {
-                    if (j == 0)
-                    {
-                        newRow["SL"] = (i + 1).ToString();
-                    }
-                    else
-                    {
-                        newRow["Type Name"] = listOfTestTypes[i];
-                    }
-                }
-                table.Rows.Add(newRow);
-            }
-            testTypeGridView.DataSource = table;
+            testTypeGridView.DataSource = _testTypeManager.GetAllTestTypeInGrid();
             testTypeGridView.DataBind();
         }
 

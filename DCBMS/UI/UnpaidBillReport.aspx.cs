@@ -6,7 +6,7 @@ using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DCBMS.Middleware;
+using DCBMS.BLL;
 using DCBMS.Model;
 using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
@@ -17,7 +17,7 @@ namespace DCBMS.UI
 {
     public partial class UnpaidBillReport : Page
     {
-        ReportHelper reportHelper = new ReportHelper();
+        ReportManager reportManager = new ReportManager();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -88,7 +88,7 @@ namespace DCBMS.UI
 
         private void ShowUnpaidBillReport(string fromDate, string toDate)
         {
-            List<UnpaidBill> unpaidBills = reportHelper.GetUnpaidBillReport(fromDate, toDate);
+            List<UnpaidBill> unpaidBills = reportManager.GetUnpaidBillReport(fromDate, toDate);
             unpaidBillReportGridView.DataSource = unpaidBills;
             unpaidBillReportGridView.DataBind();
             decimal totalAmount = 0;

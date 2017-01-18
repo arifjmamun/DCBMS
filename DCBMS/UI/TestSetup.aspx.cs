@@ -9,7 +9,7 @@ namespace DCBMS.UI
 {
     public partial class TestSetup : Page
     {
-        TestHelper testHelper = new TestHelper();
+        TestManager testHelper = new TestManager();
 
         //Show Gridview as a table
         private void LoadGridView()

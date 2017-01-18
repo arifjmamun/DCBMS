@@ -7,7 +7,7 @@ using DCBMS.Model;
 
 namespace DCBMS.BLL
 {
-    public class TestHelper
+    public class TestManager
     {
         CommonGateway commonGateway = new CommonGateway();
         TestGateway testGateway = new TestGateway();

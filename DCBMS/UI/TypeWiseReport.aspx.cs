@@ -6,7 +6,7 @@ using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DCBMS.Middleware;
+using DCBMS.BLL;
 using DCBMS.Model;
 using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
@@ -18,7 +18,7 @@ namespace DCBMS.UI
 {
     public partial class TypeWiseReport : Page
     {
-        ReportHelper reportHelper = new ReportHelper();
+        ReportManager reportManager = new ReportManager();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -89,7 +89,7 @@ namespace DCBMS.UI
 
         private void ShowTypeWiseReport(string fromDate, string toDate)
         {
-            List<TestReport> testReports = reportHelper.GetTypeWiseReport(fromDate, toDate);
+            List<TestReport> testReports = reportManager.GetTypeWiseReport(fromDate, toDate);
             typeWiseReportGridView.DataSource = testReports;
             typeWiseReportGridView.DataBind();
             decimal totalAmount = 0;

@@ -6,12 +6,12 @@ using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DCBMS.Middleware;
 using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 using iTextSharp.text.html;
 using System.Text;
+using DCBMS.BLL;
 using DCBMS.Model;
 using Color = System.Drawing.Color;
 
@@ -19,7 +19,7 @@ namespace DCBMS.UI
 {
     public partial class TestWiseReport : Page
     {
-        ReportHelper reportHelper = new ReportHelper();
+        ReportManager reportManager = new ReportManager();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -90,7 +90,7 @@ namespace DCBMS.UI
 
         private void ShowTestWiseReport(string fromDate, string toDate)
         {
-            List<TestReport> testReports = reportHelper.GetTestWiseReport(fromDate, toDate);
+            List<TestReport> testReports = reportManager.GetTestWiseReport(fromDate, toDate);
             testWiseReportGridView.DataSource = testReports;
             testWiseReportGridView.DataBind();
             decimal totalAmount = 0;

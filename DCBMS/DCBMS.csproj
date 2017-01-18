@@ -1122,12 +1122,12 @@
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
-    <Compile Include="BLL\CommonHelper.cs" />
-    <Compile Include="BLL\PaymentHelper.cs" />
-    <Compile Include="BLL\ReportHelper.cs" />
-    <Compile Include="BLL\TestHelper.cs" />
-    <Compile Include="BLL\TestRequestEntryHelper.cs" />
-    <Compile Include="BLL\TestTypeHelper.cs" />
+    <Compile Include="BLL\CommonManager.cs" />
+    <Compile Include="BLL\PaymentManager.cs" />
+    <Compile Include="BLL\ReportManager.cs" />
+    <Compile Include="BLL\TestManager.cs" />
+    <Compile Include="BLL\TestRequestEntryManager.cs" />
+    <Compile Include="BLL\TestTypeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AjaxHandler.asmx.cs">
       <DependentUpon>AjaxHandler.asmx</DependentUpon>

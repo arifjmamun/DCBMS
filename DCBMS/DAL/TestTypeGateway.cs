@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using DCBMS.Model;
 
@@ -6,7 +7,6 @@ namespace DCBMS.DAL
 {
     public class TestTypeGateway : CommonGateway
     {
-        //Add new TestTypeSetup to the database
         public void AddNewTestType(TestType newTestType)
         {
             try
@@ -24,26 +24,7 @@ namespace DCBMS.DAL
             }
         }
 
-        // Get all TestTypeSetup info from Database
-        public DataTable GetAllTestTypeAsTable()
-        {
-            try
-            {
-                const string sqlQuery = @"SELECT * FROM test_type_setup";
-                Connection.Open();
-                Command.CommandText = sqlQuery;
-                Reader = Command.ExecuteReader();
-                DataTable newTable = new DataTable();
-                newTable.Load(Reader);
-                return newTable;
-            }
-            finally
-            {
-                Connection.Close();
-            }
-        }
 
-        // Check the given test type exist or not
         public bool CheckTestTypeIsExist(TestType newTestType)
         {
             try
@@ -58,9 +39,34 @@ namespace DCBMS.DAL
                 }
                 return false;
             }
-            catch (Exception)
+            finally
             {
-                throw;
+                Connection.Close();
+            }
+        }
+
+        public List<TestType> GetAllTestTypeInGrid()
+        {
+            try
+            {
+                List<TestType> testTypes = new List<TestType>();
+                const string sqlQuery = @"SELECT * FROM test_type_setup";
+                Connection.Open();
+                Command.CommandText = sqlQuery;
+                Reader = Command.ExecuteReader();
+                if (Reader.HasRows)
+                {
+                    int serial = 0;
+                    while (Reader.Read())
+                    {
+                        TestType testType = new TestType();
+                        testType.Serial = ++serial;
+                        testType.TypeName = Reader["test_type_name"].ToString();
+                        testTypes.Add(testType);
+                    }
+                    Reader.Close();
+                }
+                return testTypes;
             }
             finally
             {

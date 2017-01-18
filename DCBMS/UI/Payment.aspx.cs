@@ -2,14 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Web.UI;
-using DCBMS.Middleware;
+using DCBMS.BLL;
 using DCBMS.Model;
 
 namespace DCBMS.UI
 {
     public partial class Payment : Page
     {
-        PaymentHelper paymentHelper = new PaymentHelper();
+        PaymentManager paymentManager = new PaymentManager();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -23,7 +23,7 @@ namespace DCBMS.UI
             string billId = billNoTextBox.Text;
             if (billId != String.Empty)
             {
-                BillInfo billInfo = paymentHelper.GetTestInfoOfTheBill(billId);
+                BillInfo billInfo = paymentManager.GetTestInfoOfTheBill(billId);
                 if (billInfo != null)
                 {
                     ShowTestInfoInGridView(billInfo.TestList);
@@ -63,7 +63,7 @@ namespace DCBMS.UI
                 bool isDecimalValue = Decimal.TryParse(amountTextBox.Text, out payAmount);
                 if (isDecimalValue && payAmount > 0 && billInfo.DueAmount > 0 && payAmount <= billInfo.DueAmount)
                 {
-                    bool isPaid = paymentHelper.UpdateDueAmount(billInfo.BillId, payAmount);
+                    bool isPaid = paymentManager.UpdateDueAmount(billInfo.BillId, payAmount);
                     if (isPaid)
                     {
                         messageLabel.Text = "Bill Id: "+billInfo.BillId+", Paid: "+payAmount+" Taka, Due Remaining: "+(billInfo.DueAmount-payAmount)+" Taka.";

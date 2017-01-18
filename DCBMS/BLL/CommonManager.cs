@@ -4,9 +4,9 @@ using System.Data;
 using DCBMS.DAL;
 
 
-namespace DCBMS.Middleware
+namespace DCBMS.BLL
 {
-    public class CommonHelper
+    public class CommonManager
     {
         CommonGateway _gateway = new CommonGateway();
 

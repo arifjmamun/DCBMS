@@ -44,7 +44,7 @@ namespace DCBMS.Model
 
         private string GenerateBillId()
         {
-            TestRequestEntryHelper testRequestEntryHelper = new TestRequestEntryHelper();
+            TestRequestEntryManager testRequestEntryHelper = new TestRequestEntryManager();
             return  testRequestEntryHelper.GetBillId();
         }
     }

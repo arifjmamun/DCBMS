@@ -20,7 +20,7 @@ namespace DCBMS.Model
         public TestInfo(string testName):this()
         {
             TestName = testName;
-            TestRequestEntryHelper testRequestEntryHelper = new TestRequestEntryHelper();
+            TestRequestEntryManager testRequestEntryHelper = new TestRequestEntryManager();
             TestTypeName = testRequestEntryHelper.GetTestTypeName(TestName);
         }
 

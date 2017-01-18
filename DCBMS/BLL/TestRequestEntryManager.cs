@@ -4,7 +4,7 @@ using DCBMS.Model;
 
 namespace DCBMS.BLL
 {
-    public class TestRequestEntryHelper
+    public class TestRequestEntryManager
     {
         TestRequestEntryGateway _testRequestEntryGateway = new TestRequestEntryGateway();
         public List<string> GetAllTestName()

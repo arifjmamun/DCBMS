@@ -11,7 +11,7 @@ namespace DCBMS.UI
 {
     public partial class TestRequest : Page
     {
-        TestRequestEntryHelper testRequestEntryHelper = new TestRequestEntryHelper();
+        TestRequestEntryManager testRequestEntryManager = new TestRequestEntryManager();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -60,7 +60,7 @@ namespace DCBMS.UI
                 string mobileNumber = mobileNoTextBox.Text;
                 BillInfo newBillInfo = new BillInfo((List<TestInfo>)ViewState["TestList"]);
                 PatientInfo newPatientInfo = new PatientInfo(patientName, mobileNumber, birthDate, newBillInfo);
-                testRequestEntryHelper.SavePatientBillInfo(newPatientInfo);
+                testRequestEntryManager.SavePatientBillInfo(newPatientInfo);
                 OpenPdfFile(newPatientInfo);
             }
             else
@@ -83,7 +83,7 @@ namespace DCBMS.UI
 
         private void LoadAllTestName()
         {
-            List<string> testNameList = testRequestEntryHelper.GetAllTestName();
+            List<string> testNameList = testRequestEntryManager.GetAllTestName();
             foreach (string testName in testNameList)
             {
                 selectTestDropDown.Items.Add(testName);

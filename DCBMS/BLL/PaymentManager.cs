@@ -2,9 +2,9 @@
 using DCBMS.DLL.Gateway;
 using DCBMS.Model;
 
-namespace DCBMS.Middleware
+namespace DCBMS.BLL
 {
-    public class PaymentHelper
+    public class PaymentManager
     {
         PaymentGateway _paymentGateway = new PaymentGateway();
         

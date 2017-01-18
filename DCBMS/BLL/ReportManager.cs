@@ -2,9 +2,9 @@
 using DCBMS.DAL;
 using DCBMS.Model;
 
-namespace DCBMS.Middleware
+namespace DCBMS.BLL
 {
-    public class ReportHelper
+    public class ReportManager
     {
         ReportGateway _reportGateway = new ReportGateway();
 

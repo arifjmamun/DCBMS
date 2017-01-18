@@ -15,11 +15,11 @@ namespace DCBMS.Services
     [ScriptService]
     public class AjaxHandler : WebService
     {
-        TestRequestEntryHelper testRequestEntry = new TestRequestEntryHelper();
+        TestRequestEntryManager testRequestEntryManager = new TestRequestEntryManager();
         [WebMethod]
         public string LoadTestFee(string testName)
         {
-            return testRequestEntry.GetTestFee(testName).ToString("F");
+            return testRequestEntryManager.GetTestFee(testName).ToString("F");
         }
     }
 }
