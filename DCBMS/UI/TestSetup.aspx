@@ -59,10 +59,18 @@
                             <hr />
                             <asp:GridView ID="testGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
                                 <Columns>
-                                    <asp:BoundField DataField="test_id" HeaderText="SL" />
-                                    <asp:BoundField DataField="test_name" HeaderText="Test Name" />
-                                    <asp:BoundField DataField="test_fee" HeaderText="Fee" />
-                                    <asp:BoundField DataField="test_type_name" HeaderText="Type" />
+                                    <asp:TemplateField HeaderText="SL">
+                                        <ItemTemplate><%#Eval("Serial")%></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Test Name">
+                                        <ItemTemplate><%#Eval("TestName")%></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Fee">
+                                        <ItemTemplate><%#Eval("TestFee")%></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Type">
+                                        <ItemTemplate><%#Eval("TestTypeName")%></ItemTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
                                 <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                             </asp:GridView>

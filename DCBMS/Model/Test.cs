@@ -5,8 +5,9 @@ namespace DCBMS.Model
     [Serializable]
     public class Test
     {
+        public int Serial { get; set; }
         public string TestName { get; set; }
-        public decimal TestFee { get; private set; }
+        public decimal TestFee { get; set; }
         public string TestTypeName { get; set; }
 
         public Test(string testName, decimal testFee, string testTypeName)
@@ -16,5 +17,9 @@ namespace DCBMS.Model
             TestTypeName = testTypeName;
         }
 
+        public Test()
+        {
+
+        }
     }
 }

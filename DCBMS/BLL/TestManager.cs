@@ -9,26 +9,27 @@ namespace DCBMS.BLL
 {
     public class TestManager
     {
-        CommonGateway commonGateway = new CommonGateway();
-        TestGateway testGateway = new TestGateway();
+        CommonGateway _commonGateway = new CommonGateway();
+        TestGateway _testGateway = new TestGateway();
         public List<string> GetAllTestType()
         {
-            return commonGateway.GetAllTestType();
+            return _commonGateway.GetAllTestType();
         }
 
         public bool CheckTestIsExist(Test newTest)
         {
-            return testGateway.CheckTestIsExist(newTest);
+            return _testGateway.CheckTestIsExist(newTest);
         }
 
         public void AddNewTest(Test newTest)
         {
-            testGateway.AddNewTest(newTest);
+            _testGateway.AddNewTest(newTest);
         }
 
-        public DataTable GetAllTestAsTable()
+
+        public List<Test> GetAllTestInGrid()
         {
-            return testGateway.GetAllTestAsTable();
+            return _testGateway.GetAllTestInGrid();
         }
     }
 }

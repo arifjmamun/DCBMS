@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Collections.Generic;
 using DCBMS.DAL;
 using DCBMS.Model;
 
@@ -7,7 +6,6 @@ namespace DCBMS.DLL.Gateway
 {
     public class TestGateway : CommonGateway
     {
-        // Check the given test name exist or not
         public bool CheckTestIsExist(Test newTest)
         {
             try
@@ -21,10 +19,6 @@ namespace DCBMS.DLL.Gateway
                     return true;
                 }
                 return false;
-            }
-            catch (Exception)
-            {
-                throw;
             }
             finally
             {
@@ -45,33 +39,37 @@ namespace DCBMS.DLL.Gateway
                 Command.Parameters.AddWithValue("@TestTypeName", newTest.TestTypeName);
                 Command.ExecuteNonQuery();
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
             finally
             {
                 Connection.Close();
             }
         }
 
-        public DataTable GetAllTestAsTable()
+
+        public List<Test> GetAllTestInGrid()
         {
             try
             {
+                List<Test> tests = new List<Test>();
                 const string sqlQuery = @"SELECT * FROM test_setup";
                 Connection.Open();
                 Command.CommandText = sqlQuery;
                 Reader = Command.ExecuteReader();
-                DataTable table = new DataTable();
-                table.Load(Reader);
-                return table;
-            }
-            catch (Exception)
-            {
-
-                throw;
+                if (Reader.HasRows)
+                {
+                    int serial = 0;
+                    while (Reader.Read())
+                    {
+                        Test test = new Test();
+                        test.Serial = ++serial;
+                        test.TestName = Reader["test_name"].ToString();
+                        test.TestFee = (decimal)Reader["test_fee"];
+                        test.TestTypeName = Reader["test_type_name"].ToString();
+                        tests.Add(test);
+                    }
+                    Reader.Close();
+                }
+                return tests;
             }
             finally
             {
