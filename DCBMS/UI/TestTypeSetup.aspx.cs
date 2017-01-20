@@ -51,14 +51,12 @@ namespace DCBMS.UI
             DisplayWarning();
         }
 
-        //Show Gridview as a table
         private void LoadGridView()
         {
             testTypeGridView.DataSource = _testTypeManager.GetAllTestTypeInGrid();
             testTypeGridView.DataBind();
         }
 
-        //Show warning if the field is empty or has invalid data against Regular expression
         private void DisplayWarning()
         {
             if (ViewState["HasError"] != null)
@@ -75,8 +73,8 @@ namespace DCBMS.UI
             else
             {
                 warningPanel.Visible = false;
+                typeNameTextBox.Text = String.Empty;
             }
-            //Regular expression implementation uncompleted
         }
 
     }

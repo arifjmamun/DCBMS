@@ -87,6 +87,9 @@ namespace DCBMS.UI
             else
             {
                 warningPanel.Visible = false;
+                testNameTextBox.Text = String.Empty;
+                feeTextBox.Text = String.Empty;
+                testTypeDropDown.SelectedIndex = 0;
             }
         }
     }

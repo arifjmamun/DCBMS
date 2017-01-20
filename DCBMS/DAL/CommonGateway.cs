@@ -23,11 +23,6 @@ namespace DCBMS.DAL
                 Connection.Close();
                 return testTypes;
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
             finally
             {
                 Connection.Close();
