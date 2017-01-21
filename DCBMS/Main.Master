@@ -150,7 +150,7 @@
         </aside>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <img src="../Images/Banner.jpg" class="img-responsive"/>
+            <img src="../Images/Banner.jpg" width="100%" height="auto"/>
             <form id="form1" runat="server">
                 <asp:ContentPlaceHolder ID="mainContent" runat="server">
                 </asp:ContentPlaceHolder>
@@ -161,7 +161,7 @@
             <div class="pull-right hidden-xs">
                 <b>Version</b> 2.3.6
             </div>
-            <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+            <strong>Copyright &copy; 2016-2017 <a href="http://www.facebook.com/arifjmamun">Arif | BITM</a>.</strong> All rights
             reserved.
         </footer>
     </div>

@@ -27,7 +27,7 @@ namespace DCBMS.DAL
                     int serial = 0;
                     while (Reader.Read())
                     {
-                        string serialNo = (++serial).ToString();
+                        int serialNo = ++serial;
                         string testName = Reader["test_name"].ToString();
                         int totalTest = Convert.ToInt32(Reader["total_test"]);
                         decimal totalAmount = (Reader["total_amount"] != DBNull.Value) ? Convert.ToDecimal(Reader["total_amount"]) : 0;
@@ -66,7 +66,7 @@ namespace DCBMS.DAL
                     while (Reader.Read())
                     {
                         TestReport testReport = new TestReport();
-                        testReport.Serial = (++serial).ToString();
+                        testReport.Serial = ++serial;
                         testReport.TestType = Reader["test_type_name"].ToString();
                         testReport.TotalTest = Convert.ToInt32(Reader["total_test"]);
                         testReport.TotalAmount = (Reader["total_amount"] != DBNull.Value) ? Convert.ToDecimal(Reader["total_amount"]) : 0;

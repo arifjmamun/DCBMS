@@ -50,7 +50,7 @@ namespace DCBMS.DAL
             try
             {
                 List<TestType> testTypes = new List<TestType>();
-                const string sqlQuery = @"SELECT * FROM test_type_setup";
+                const string sqlQuery = @"SELECT * FROM test_type_setup ORDER BY test_type_name";
                 Connection.Open();
                 Command.CommandText = sqlQuery;
                 Reader = Command.ExecuteReader();

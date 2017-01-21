@@ -51,7 +51,7 @@ namespace DCBMS.DLL.Gateway
             try
             {
                 List<Test> tests = new List<Test>();
-                const string sqlQuery = @"SELECT * FROM test_setup";
+                const string sqlQuery = @"SELECT * FROM test_setup ORDER BY test_name";
                 Connection.Open();
                 Command.CommandText = sqlQuery;
                 Reader = Command.ExecuteReader();

@@ -54,7 +54,7 @@
                                     From: <asp:Label runat="server" ID="fromDateLabel"></asp:Label> To: <asp:Label runat="server" ID="toDateLabel"></asp:Label>
                                 </h4>
                                 <br />
-                                <asp:GridView ID="testWiseReportGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" AllowPaging="True">
+                                <asp:GridView ID="testWiseReportGridView" runat="server" CssClass="table table-striped" ClientIDMode="Static" GridLines="None" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
                                     <Columns>
                                         <asp:TemplateField HeaderText="SL">
                                             <ItemTemplate><%#Eval("Serial") %></ItemTemplate>
